@@ -23,7 +23,6 @@ import java.util.UUID;
     private BigDecimal amountOfPaymentPerBody;
     private BigDecimal amountOfRepaymentPercent;
     private OfferOfCredit offerOfCredit;
-    шошршш
 
     public ScheduleOfPayment() {
     }
