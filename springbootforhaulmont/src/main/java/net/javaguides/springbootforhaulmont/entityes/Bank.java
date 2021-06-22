@@ -16,8 +16,12 @@ import java.util.UUID;
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "Bank_id")
     private UUID id;
-    private List<Credit> listOfCredits; //поставить отношение
-    private List<Client> listOfClients; //поставить отношение
+
+    @OneToMany(mappedBy = "bank", cascade = CascadeType.ALL)
+    private List<Credit> listOfCredits;
+
+    @OneToMany(mappedBy = "bank", cascade = CascadeType.ALL)
+    private List<Client> listOfClients;
 
     public Bank() {
     }

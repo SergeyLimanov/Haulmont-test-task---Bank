@@ -29,11 +29,11 @@ import java.util.UUID;
     private String passportNumber;
 
     @ManyToOne
-    @JoinColumn(name = "Bank_id")  //поставить отношение
+    @JoinColumn(name = "Bank_id")
     private Bank bank;
 
-
-    private List <OfferOfCredit> offerOfCredits; //поставить отношение
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+      private List <OfferOfCredit> offerOfCredits;
 
     public Client() {
     }

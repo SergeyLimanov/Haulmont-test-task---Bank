@@ -24,12 +24,14 @@ import java.util.UUID;
     private BigDecimal creditPercentage;
 
     @JoinColumn(name = "Bank_id")
-    private Bank bank;                              //поставить отношение
+    @ManyToOne
+    private Bank bank;
 
     @Column(name = "Credit_type_of_crededit")
     public String typeOfCredit;
 
-    private List <OfferOfCredit> offerOfCreditList; //поставить отношение
+    @OneToMany(mappedBy = "credit", cascade = CascadeType.ALL) // fetch type by defolt
+    private List <OfferOfCredit> offerOfCreditList;
 
     public Credit() {
     }

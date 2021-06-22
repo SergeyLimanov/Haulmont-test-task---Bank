@@ -18,17 +18,40 @@ import java.util.UUID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "offer_of_credit_id")
     private UUID id;
 
+    @JoinColumn(name = "Client_id")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Client client;
+
+    @JoinColumn(name = "Credit_id")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Credit credit;
+
+    @OneToMany(mappedBy = "offerOfCredit", cascade = CascadeType.ALL)  // fetch type by defolt
     private List <ScheduleOfPayment> scheduleOfPayment;
+
+
+    @Column(name = "name_of_credit")
     private String nameOfCredit;
+
+    @Column(name = "sum_of_percent")
     private BigDecimal sumOfPercent;
+
+    @Column(name = "first_payment")
     private BigDecimal firstPayment;
+
+    @Column(name = "credit_term")
     private Integer creditTerm;  //срок кредита
+
+    @ManyToOne(cascade = CascadeType.ALL)   // fetch type by defolt
+    @JoinColumn(name = "bank_id")
     private Bank bank;
+
+
     @JsonDeserialize(using = LocalDateDeserializer.class)
+    @Column(name = "take_date_of_credit")
     private LocalDate takeDate;
 
 

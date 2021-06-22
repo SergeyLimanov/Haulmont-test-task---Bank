@@ -16,12 +16,23 @@ import java.util.UUID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "schedule_of_payment_id")
     private UUID id;
 
+    @Column(name = "date_of_payment")
     private LocalDate dateOfPayment;
+
+    @Column(name = "amount_of_payment")
     private BigDecimal amountOfPayment;
+
+    @Column(name = "amount_of_payment_per_doby")
     private BigDecimal amountOfPaymentPerBody;
+
+    @Column(name = "amount_of_repayment_percent")
     private BigDecimal amountOfRepaymentPercent;
+
+    @ManyToOne
+    @JoinColumn(name = "offer_of_credit_id")
     private OfferOfCredit offerOfCredit;
 
     public ScheduleOfPayment() {
