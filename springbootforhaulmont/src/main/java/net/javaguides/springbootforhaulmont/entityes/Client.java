@@ -3,6 +3,7 @@ package net.javaguides.springbootforhaulmont.entityes;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -12,16 +13,27 @@ import java.util.UUID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Client_id")
     private UUID id;
 
+    @Column(name = "Client_fio")
     private String fio;
+
+    @Column(name = "Client_phone_number")
     private int phoneNumber;
+
+    @Column(name = "Client_email")
     private String email;
+
+    @Column(name = "Client_passport_number")
     private String passportNumber;
 
+    @ManyToOne
+    @JoinColumn(name = "Bank_id")  //поставить отношение
     private Bank bank;
-    private Credit credit;
-    private OfferOfCredit offerOfCredit;
+
+
+    private List <OfferOfCredit> offerOfCredits; //поставить отношение
 
     public Client() {
     }

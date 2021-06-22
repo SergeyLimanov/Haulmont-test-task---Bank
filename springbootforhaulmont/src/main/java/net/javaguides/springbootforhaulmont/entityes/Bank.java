@@ -14,9 +14,10 @@ import java.util.UUID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "Bank_id")
     private UUID id;
-    private List<Credit> listOfCredits;
-    private List<Client> listOfClients;
+    private List<Credit> listOfCredits; //поставить отношение
+    private List<Client> listOfClients; //поставить отношение
 
     public Bank() {
     }
