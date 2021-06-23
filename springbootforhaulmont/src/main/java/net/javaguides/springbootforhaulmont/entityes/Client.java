@@ -16,16 +16,16 @@ import java.util.UUID;
     @Column(name = "Client_id")
     private UUID id;
 
-    @Column(name = "Client_fio")
+    @Column(name = "fio")
     private String fio;
 
-    @Column(name = "Client_phone_number")
+    @Column(name = "phone_number")
     private int phoneNumber;
 
-    @Column(name = "Client_email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "Client_passport_number")
+    @Column(name = "passport_number")
     private String passportNumber;
 
     @ManyToOne
