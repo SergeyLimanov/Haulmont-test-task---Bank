@@ -1,4 +1,4 @@
-package net.javaguides.springbootforhaulmont;
+package net.javaguides.springbootforhaulmont.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +8,8 @@ public class SpringbootforhaulmontApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootforhaulmontApplication.class, args);
+		
+		//нужен ли пакет web?
 	}
 
 }

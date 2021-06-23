@@ -25,5 +25,7 @@ import java.util.UUID;
 
     public Bank() {
     }
+    
+    // переопределить ToString?
 
 }

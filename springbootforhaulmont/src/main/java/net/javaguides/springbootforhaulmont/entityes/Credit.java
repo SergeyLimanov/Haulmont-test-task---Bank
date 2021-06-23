@@ -35,4 +35,6 @@ import java.util.UUID;
 
     public Credit() {
     }
+
+    // переопределить ToString?
 }

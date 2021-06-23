@@ -16,8 +16,11 @@ import java.util.UUID;
     @Column(name = "Client_id")
     private UUID id;
 
-    @Column(name = "fio")
-    private String fio;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 
     @Column(name = "phone_number")
     private int phoneNumber;
@@ -37,4 +40,7 @@ import java.util.UUID;
 
     public Client() {
     }
+
+     // переопределить ToString?
+    // конструктор с аргументами
 }
