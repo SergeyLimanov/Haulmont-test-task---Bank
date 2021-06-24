@@ -1,4 +1,4 @@
-package net.javaguides.springbootforhaulmont.web;
+package net.javaguides.springbootforhaulmont.entrance;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

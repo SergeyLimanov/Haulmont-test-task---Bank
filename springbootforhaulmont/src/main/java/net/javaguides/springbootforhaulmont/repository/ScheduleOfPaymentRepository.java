@@ -1,6 +1,6 @@
 package net.javaguides.springbootforhaulmont.repository;
 
-import net.javaguides.springbootforhaulmont.entityes.ScheduleOfPayment;
+import net.javaguides.springbootforhaulmont.model.ScheduleOfPayment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package net.javaguides.springbootforhaulmont.entityes;
+package net.javaguides.springbootforhaulmont.model;
 
 import lombok.Data;
 
@@ -14,20 +14,20 @@ import java.util.UUID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Credit_id")
+    @Column(name = "credit_id")
     private UUID id;
 
-    @Column(name = "Credit_limit_of_money")
+    @Column(name = "limit_of_money")
     private BigDecimal limitOfMoney;
 
-    @Column(name = "Client_credit_percentage")
+    @Column(name = "credit_percentage")
     private BigDecimal creditPercentage;
 
-    @JoinColumn(name = "Bank_id")
+    @JoinColumn(name = "bank_id")
     @ManyToOne
     private Bank bank;
 
-    @Column(name = "Credit_type_of_crededit")
+    @Column(name = "type_of_crededit")
     public String typeOfCredit;
 
     @OneToMany(mappedBy = "credit", cascade = CascadeType.ALL) // fetch type by defolt

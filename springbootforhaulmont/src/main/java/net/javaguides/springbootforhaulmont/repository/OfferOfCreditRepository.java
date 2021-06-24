@@ -1,6 +1,6 @@
 package net.javaguides.springbootforhaulmont.repository;
 
-import net.javaguides.springbootforhaulmont.entityes.OfferOfCredit;
+import net.javaguides.springbootforhaulmont.model.OfferOfCredit;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

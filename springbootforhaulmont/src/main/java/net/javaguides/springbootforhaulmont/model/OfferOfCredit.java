@@ -1,4 +1,4 @@
-package net.javaguides.springbootforhaulmont.entityes;
+package net.javaguides.springbootforhaulmont.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table("offer_of_credit")
+@Table("Offer_of_credit")
     public class OfferOfCredit {
 
     @Id

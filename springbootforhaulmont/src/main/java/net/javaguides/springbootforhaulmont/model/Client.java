@@ -1,4 +1,4 @@
-package net.javaguides.springbootforhaulmont.entityes;
+package net.javaguides.springbootforhaulmont.model;
 
 import lombok.Data;
 
@@ -13,14 +13,11 @@ import java.util.UUID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Client_id")
+    @Column(name = "client_id")
     private UUID id;
 
     @Column(name = "first_name")
     private String firstName;
-
-    @Column(name = "middle_name")
-    private String middleName;
 
     @Column(name = "last_name")
     private String lastName;
@@ -35,7 +32,7 @@ import java.util.UUID;
     private String passportNumber;
 
     @ManyToOne
-    @JoinColumn(name = "Bank_id")
+    @JoinColumn(name = "bank_id")
     private Bank bank;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)

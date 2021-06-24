@@ -1,4 +1,4 @@
-package net.javaguides.springbootforhaulmont.entityes;
+package net.javaguides.springbootforhaulmont.model;
 
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table("schedule_of_payment")
+@Table("Schedule_of_payment")
     public class ScheduleOfPayment {
 
     @Id
@@ -25,7 +25,7 @@ import java.util.UUID;
     @Column(name = "amount_of_payment")
     private BigDecimal amountOfPayment;
 
-    @Column(name = "amount_of_payment_per_doby")
+    @Column(name = "amount_of_payment_per_body")
     private BigDecimal amountOfPaymentPerBody;
 
     @Column(name = "amount_of_repayment_percent")
