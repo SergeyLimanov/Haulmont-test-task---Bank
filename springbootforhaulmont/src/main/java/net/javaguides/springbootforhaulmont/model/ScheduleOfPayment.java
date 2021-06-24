@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table("Schedule_of_payment")
+@Table(name = "Schedule_of_payment")
     public class ScheduleOfPayment {
 
     @Id

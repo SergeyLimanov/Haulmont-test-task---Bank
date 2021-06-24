@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table("Client")
+@Table(name = "Client")
     public class Client {
 
     @Id
@@ -23,7 +23,7 @@ import java.util.UUID;
     private String lastName;
 
     @Column(name = "phone_number")
-    private int phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "email")
     private String email;

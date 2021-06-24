@@ -14,7 +14,7 @@ CREATE TABLE Client (
                         client_id uuid not null,
                         first_name varchar not null,
                         last_name varchar not null,
-                        phone_number int not null,
+                        phone_number varchar not null,
                         email varchar not null,
                         passport_number varchar not null,
                         PRIMARY KEY (client_id),
