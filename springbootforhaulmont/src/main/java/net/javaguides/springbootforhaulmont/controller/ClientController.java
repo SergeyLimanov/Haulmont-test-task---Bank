@@ -22,12 +22,18 @@ public class ClientController {
     public ClientController(ClientServiceInterface clientServiceInterface) {
         this.clientServiceInterface = clientServiceInterface;
     }
+    @GetMapping("/")
+    public String showStartPage(Model model) {
+        model.addAttribute("listClients", clientServiceInterface.findAllClient());
+        return "index";
+
+    }
 
     @GetMapping("/clients")
     public String findAll(Model model) {
         List<Client> clients = clientServiceInterface.findAllClient();
         model.addAttribute("clients", clients);
-        return "clients-list";
+        return "client-list";
     }
 
     @GetMapping("/client-create")
@@ -51,7 +57,7 @@ public class ClientController {
     public String updateClientForm(@PathVariable("id") UUID id, Model model) {
         Client client = clientServiceInterface.findClientById(id);
         model.addAttribute("client", client);
-        return "/user-update";
+        return "/client-update";
     }
 
     @PostMapping("/client-update")
