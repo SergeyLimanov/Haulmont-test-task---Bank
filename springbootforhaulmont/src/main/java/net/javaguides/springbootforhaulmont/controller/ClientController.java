@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class ClientController {
@@ -33,10 +35,29 @@ public class ClientController {
         return "client-create";
     }
 
-    @PostMapping
+    @PostMapping("/client-create")
     public String createClient(Client client) {
         clientServiceInterface.saveClient(client);
         return "redirect:/clients";
     }
-    
+
+    @GetMapping("client-delete/{id}")
+    public String deleteClient(@PathVariable("id") UUID id) {
+        clientServiceInterface.deleteClientById(id);
+        return "redirect:/clients";
+    }
+
+    @GetMapping("client-update/{id}")
+    public String updateClientForm(@PathVariable("id") UUID id, Model model) {
+        Client client = clientServiceInterface.findClientById(id);
+        model.addAttribute("client", client);
+        return "/user-update";
+    }
+
+    @PostMapping("/client-update")
+    public String updateClient(Client client) {
+        clientServiceInterface.saveClient(client);
+        return "redirect:/clients";
+    }
+
 }
