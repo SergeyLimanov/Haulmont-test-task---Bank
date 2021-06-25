@@ -5,16 +5,18 @@ import net.javaguides.springbootforhaulmont.model.Credit;
 import net.javaguides.springbootforhaulmont.repository.ClientRepository;
 import net.javaguides.springbootforhaulmont.repository.CreditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
-public class CreditServiceRealisation implements CreditServiceInterface {
+@Service
+public class CreditServiceInterfaceImpl implements CreditServiceInterface {
     
     private final CreditRepository creditRepository;
 
     @Autowired
-    public CreditServiceRealisation(CreditRepository creditRepository) {
+    public CreditServiceInterfaceImpl(CreditRepository creditRepository) {
         this.creditRepository = creditRepository;
     }
 

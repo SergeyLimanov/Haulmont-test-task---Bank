@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ClientServiceRealisation implements ClientServiceInterface {
+public class ClientServiceInterfaceImpl implements ClientServiceInterface {
 
     private final ClientRepository clientRepository;
 
     @Autowired
-    public ClientServiceRealisation(ClientRepository clientRepository) {
+    public ClientServiceInterfaceImpl(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 

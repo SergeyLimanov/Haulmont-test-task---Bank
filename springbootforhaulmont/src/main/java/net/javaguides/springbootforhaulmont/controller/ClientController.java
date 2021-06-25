@@ -1,8 +1,9 @@
 package net.javaguides.springbootforhaulmont.controller;
 
+import net.javaguides.springbootforhaulmont.model.Bank;
 import net.javaguides.springbootforhaulmont.model.Client;
+import net.javaguides.springbootforhaulmont.service.BankServiceInterface;
 import net.javaguides.springbootforhaulmont.service.ClientServiceInterface;
-import net.javaguides.springbootforhaulmont.service.ClientServiceRealisation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,16 +17,19 @@ import java.util.UUID;
 @Controller
 public class ClientController {
 
-    private ClientServiceInterface clientServiceInterface;
+    private final ClientServiceInterface clientServiceInterface;
 
     @Autowired
-    public ClientController(ClientServiceInterface clientServiceInterface) {
+    public ClientController(ClientServiceInterface clientServiceInterface, BankServiceInterface bankServiceInterface) {
         this.clientServiceInterface = clientServiceInterface;
     }
+
+
+
     @GetMapping("/")
     public String showStartPage(Model model) {
         model.addAttribute("listClients", clientServiceInterface.findAllClient());
-        return "index";
+        return "Client/client-list";
 
     }
 
@@ -33,12 +37,12 @@ public class ClientController {
     public String findAll(Model model) {
         List<Client> clients = clientServiceInterface.findAllClient();
         model.addAttribute("clients", clients);
-        return "client-list";
+        return "Client/client-list";
     }
 
     @GetMapping("/client-create")
     public String createClientFrom(Client client) {
-        return "client-create";
+        return "Client/client-create";
     }
 
     @PostMapping("/client-create")
@@ -57,7 +61,7 @@ public class ClientController {
     public String updateClientForm(@PathVariable("id") UUID id, Model model) {
         Client client = clientServiceInterface.findClientById(id);
         model.addAttribute("client", client);
-        return "/client-update";
+        return "Client/client-update";
     }
 
     @PostMapping("/client-update")
@@ -65,5 +69,4 @@ public class ClientController {
         clientServiceInterface.saveClient(client);
         return "redirect:/clients";
     }
-
 }

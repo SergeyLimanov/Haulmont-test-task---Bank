@@ -5,16 +5,18 @@ import net.javaguides.springbootforhaulmont.model.OfferOfCredit;
 import net.javaguides.springbootforhaulmont.repository.ClientRepository;
 import net.javaguides.springbootforhaulmont.repository.OfferOfCreditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
-public class OfferOfCreditRealisation implements OfferOfCreditInterface{
+@Service
+public class OfferOfCreditInterfaceImpl implements OfferOfCreditInterface{
     
     private final OfferOfCreditRepository offerOfCreditRepository;
 
     @Autowired
-    public OfferOfCreditRealisation(OfferOfCreditRepository offerOfCreditRepository) {
+    public OfferOfCreditInterfaceImpl(OfferOfCreditRepository offerOfCreditRepository) {
         this.offerOfCreditRepository = offerOfCreditRepository;
     }
 

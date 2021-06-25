@@ -9,15 +9,15 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "Bank")
+@Table(name = "BANK")
     public class Bank {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "bank_id")
+    @Column (name = "BANK_ID")
     private UUID id;
     
-    @Column(name = "bank_name")
+    @Column(name = "BANK_NAME")
     private String name;
 
     @OneToMany(mappedBy = "bank", cascade = CascadeType.ALL)

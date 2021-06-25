@@ -13,19 +13,19 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "Offer_of_credit")
+@Table(name = "OFFER_OF_CREDIT")
     public class OfferOfCredit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "offer_of_credit_id")
+    @Column(name = "OFFER_OF_CREDIT_ID")
     private UUID id;
 
-    @JoinColumn(name = "Client_id")
+    @JoinColumn(name = "CLIENT_ID")
     @ManyToOne(cascade = CascadeType.ALL)
     private Client client;
 
-    @JoinColumn(name = "Credit_id")
+    @JoinColumn(name = "CREDIT_ID")
     @ManyToOne(cascade = CascadeType.ALL)
     private Credit credit;
 
@@ -33,25 +33,25 @@ import java.util.UUID;
     private List <ScheduleOfPayment> scheduleOfPayment;
 
 
-    @Column(name = "name_of_credit")
+    @Column(name = "NAME_OF_CREDIT")
     private String nameOfCredit;
 
-    @Column(name = "sum_of_percent")
+    @Column(name = "SUM_OF_PERCENT")
     private BigDecimal sumOfPercent;
 
-    @Column(name = "first_payment")
+    @Column(name = "FIRST_PAYMENT")
     private BigDecimal firstPayment;
 
-    @Column(name = "credit_term")
+    @Column(name = "CREDIT_TERM")
     private Integer creditTerm;  //срок кредита
 
     @ManyToOne(cascade = CascadeType.ALL)   // fetch type by defolt
-    @JoinColumn(name = "bank_id")
+    @JoinColumn(name = "BANK_ID")
     private Bank bank;
 
 
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    @Column(name = "take_date_of_credit")
+    @Column(name = "TAKE_DATE_OF_CREDIT")
     private LocalDate takeDate;
 
 

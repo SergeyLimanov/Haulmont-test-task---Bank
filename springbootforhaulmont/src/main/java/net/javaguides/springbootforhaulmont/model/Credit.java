@@ -9,25 +9,25 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "Credit")
+@Table(name = "CREDIT")
     public class Credit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "credit_id")
+    @Column(name = "CREDIT_ID")
     private UUID id;
 
-    @Column(name = "limit_of_money")
+    @Column(name = "LIMIT_OF_MONEY")
     private BigDecimal limitOfMoney;
 
-    @Column(name = "credit_percentage")
+    @Column(name = "CREDIT_PERCENTAGE")
     private BigDecimal creditPercentage;
 
-    @JoinColumn(name = "bank_id")
+    @JoinColumn(name = "BANK_ID")
     @ManyToOne
     private Bank bank;
 
-    @Column(name = "type_of_crededit")
+    @Column(name = "TYPE_OF_CREDIT")
     public String typeOfCredit;
 
     @OneToMany(mappedBy = "credit", cascade = CascadeType.ALL) // fetch type by defolt

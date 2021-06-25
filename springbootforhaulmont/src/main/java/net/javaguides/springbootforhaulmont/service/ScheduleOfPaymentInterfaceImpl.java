@@ -5,16 +5,18 @@ import net.javaguides.springbootforhaulmont.model.ScheduleOfPayment;
 import net.javaguides.springbootforhaulmont.repository.ClientRepository;
 import net.javaguides.springbootforhaulmont.repository.ScheduleOfPaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
-public class ScheduleOfPaymentRealisation implements ScheduleOfPaymentInterface{
+@Service
+public class ScheduleOfPaymentInterfaceImpl implements ScheduleOfPaymentInterface{
     
     private final ScheduleOfPaymentRepository scheduleOfPaymentRepository;
 
     @Autowired
-    public ScheduleOfPaymentRealisation(ScheduleOfPaymentRepository scheduleOfPaymentRepository) {
+    public ScheduleOfPaymentInterfaceImpl(ScheduleOfPaymentRepository scheduleOfPaymentRepository) {
         this.scheduleOfPaymentRepository = scheduleOfPaymentRepository;
     }
 

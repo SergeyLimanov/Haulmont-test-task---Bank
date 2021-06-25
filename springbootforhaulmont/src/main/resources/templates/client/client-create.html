@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create client</title>
+</head>
+<body>
+<form action="#" th:action="@{/client/client-create}" th:object="${client}" method="post">
+    <label for="firstName">First name</label>
+    <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
+    <label for="middleName">Last name</label>
+    <input type="text" th:field="*{middleName}" id="middleName" placeholder="Middle Name">
+    <label for="lastName">Last name</label>
+    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
+    <label for="phoneNumber">Last name</label>
+    <input type="text" th:field="*{phoneNumber}" id="phoneNumber" placeholder="Phone Number">
+    <label for="email">Last name</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+    <label for="passportNumber">Last name</label>
+    <input type="text" th:field="*{passportNumber}" id="passportNumber" placeholder="Passport number">
+
+    <input type="submit" value="Client create">
+</form>
+</body>
+</html>

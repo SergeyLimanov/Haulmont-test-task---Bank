@@ -11,28 +11,28 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "Schedule_of_payment")
+@Table(name = "SCHEDULE_OF_PAYMENT")
     public class ScheduleOfPayment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "schedule_of_payment_id")
+    @Column(name = "SCHEDULE_OF_PAYMENT_ID")
     private UUID id;
 
-    @Column(name = "date_of_payment")
+    @Column(name = "DATE_OF_PAYMENT")
     private LocalDate dateOfPayment;
 
-    @Column(name = "amount_of_payment")
+    @Column(name = "AMOUNT_OF_PAYMENT")
     private BigDecimal amountOfPayment;
 
-    @Column(name = "amount_of_payment_per_body")
+    @Column(name = "AMOUNT_OF_PAYMENT_PER_BODY")
     private BigDecimal amountOfPaymentPerBody;
 
-    @Column(name = "amount_of_repayment_percent")
+    @Column(name = "AMOUNT_OF_REPAYMENT_PERCENT")
     private BigDecimal amountOfRepaymentPercent;
 
     @ManyToOne
-    @JoinColumn(name = "offer_of_credit_id")
+    @JoinColumn(name = "OFFER_OF_CREDIT_ID")
     private OfferOfCredit offerOfCredit;
 
     public ScheduleOfPayment() {

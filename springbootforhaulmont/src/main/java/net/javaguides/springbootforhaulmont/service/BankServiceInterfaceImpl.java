@@ -5,16 +5,18 @@ import net.javaguides.springbootforhaulmont.model.Client;
 import net.javaguides.springbootforhaulmont.repository.BankRepository;
 import net.javaguides.springbootforhaulmont.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
-public class BankServiceRealisation implements BankServiceInterface {
+@Service
+public class BankServiceInterfaceImpl implements BankServiceInterface {
 
     private final BankRepository bankRepository;
 
     @Autowired
-    public BankServiceRealisation(BankRepository bankRepository) {
+    public BankServiceInterfaceImpl(BankRepository bankRepository) {
         this.bankRepository = bankRepository;
     }
 
