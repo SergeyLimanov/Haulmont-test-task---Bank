@@ -26,6 +26,38 @@ import java.util.UUID;
     @OneToMany(mappedBy = "bank", cascade = CascadeType.ALL)
     private List<Client> listOfClients;
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Credit> getListOfCredits() {
+        return listOfCredits;
+    }
+
+    public void setListOfCredits(List<Credit> listOfCredits) {
+        this.listOfCredits = listOfCredits;
+    }
+
+    public List<Client> getListOfClients() {
+        return listOfClients;
+    }
+
+    public void setListOfClients(List<Client> listOfClients) {
+        this.listOfClients = listOfClients;
+    }
+
     public Bank() {
     }
     

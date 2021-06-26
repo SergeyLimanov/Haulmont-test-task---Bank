@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create client</title>
 </head>
 <body>
+<div> class="container">
+    <h1>Create client</h1>
+    <hr>
+    <h2>Update Client</h2>
+<form action="#" th:action="@{/client-update.html}" th:object="${client}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <input type="hidden" th:field="*{bank}" />
+    <div  th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">firstName error</div>
+    <input type="text" th:field="*{firstName}" placeholder="First Name" class="form-control mb-4 col-4">
+    <div  th:if="${#fields.hasErrors('middletName')}" th:errors="*{middleName}">middleName error</div>
+    <input type="text" th:field="*{middleName}" placeholder="Middle Name" class="form-control mb-4 col-4">
+    <div  th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">lastName error</div>
+    <input type="text" th:field="*{lastName}" placeholder="Last Name" class="form-control mb-4 col-4">
+    <div  th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber error</div>
+    <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" class="form-control mb-4 col-4">
+    <div  th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</div>
+    <input type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4">
+    <div  th:if="${#fields.hasErrors('passportNumber')}" th:errors="*{passportNumber}">passportNumber error</div>
+    <input type="text" th:field="*{passportNumber}" placeholder="Passport Number" class="form-control mb-4 col-4">
+    <button type="submit" class="btn btn-info col-2">Update Client</button>
 
+</form>
+    <hr>
+<a th:href = "@{/clients/clients_list/{id}(id=${client.bank.id})}">Back to Client List</a>
+<br>
+<br>
+<a th:href="@{/}">Start Page</a>
+</div>
 </body>
 </html>

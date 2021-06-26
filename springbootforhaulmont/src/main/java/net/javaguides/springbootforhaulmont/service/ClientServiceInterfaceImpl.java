@@ -18,9 +18,10 @@ public class ClientServiceInterfaceImpl implements ClientServiceInterface {
         this.clientRepository = clientRepository;
     }
 
+
     @Override
-    public Client findClientById(UUID id) {
-        return clientRepository.getOne(id);
+    public Client findClient(UUID clientId) {
+        return clientRepository.getOne(clientId);
     }
 
     @Override
@@ -37,4 +38,10 @@ public class ClientServiceInterfaceImpl implements ClientServiceInterface {
      public Client saveClient(Client client) {
         return clientRepository.save(client);
     }
+
+    @Override
+    public List<Client> findByBankId(UUID bankId) {
+        return clientRepository.findByBankId(bankId);
+    }
 }
+

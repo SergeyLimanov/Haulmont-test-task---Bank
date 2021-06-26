@@ -21,6 +21,86 @@ import java.util.UUID;
     @Column(name = "OFFER_OF_CREDIT_ID")
     private UUID id;
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Credit getCredit() {
+        return credit;
+    }
+
+    public void setCredit(Credit credit) {
+        this.credit = credit;
+    }
+
+    public List<ScheduleOfPayment> getScheduleOfPayment() {
+        return scheduleOfPayment;
+    }
+
+    public void setScheduleOfPayment(List<ScheduleOfPayment> scheduleOfPayment) {
+        this.scheduleOfPayment = scheduleOfPayment;
+    }
+
+    public String getNameOfCredit() {
+        return nameOfCredit;
+    }
+
+    public void setNameOfCredit(String nameOfCredit) {
+        this.nameOfCredit = nameOfCredit;
+    }
+
+    public BigDecimal getSumOfPercent() {
+        return sumOfPercent;
+    }
+
+    public void setSumOfPercent(BigDecimal sumOfPercent) {
+        this.sumOfPercent = sumOfPercent;
+    }
+
+    public BigDecimal getFirstPayment() {
+        return firstPayment;
+    }
+
+    public void setFirstPayment(BigDecimal firstPayment) {
+        this.firstPayment = firstPayment;
+    }
+
+    public Integer getCreditTerm() {
+        return creditTerm;
+    }
+
+    public void setCreditTerm(Integer creditTerm) {
+        this.creditTerm = creditTerm;
+    }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
+    public LocalDate getTakeDate() {
+        return takeDate;
+    }
+
+    public void setTakeDate(LocalDate takeDate) {
+        this.takeDate = takeDate;
+    }
+
     @JoinColumn(name = "CLIENT_ID")
     @ManyToOne(cascade = CascadeType.ALL)
     private Client client;

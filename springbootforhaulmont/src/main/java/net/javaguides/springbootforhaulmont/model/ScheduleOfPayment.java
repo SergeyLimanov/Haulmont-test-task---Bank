@@ -19,6 +19,54 @@ import java.util.UUID;
     @Column(name = "SCHEDULE_OF_PAYMENT_ID")
     private UUID id;
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public LocalDate getDateOfPayment() {
+        return dateOfPayment;
+    }
+
+    public void setDateOfPayment(LocalDate dateOfPayment) {
+        this.dateOfPayment = dateOfPayment;
+    }
+
+    public BigDecimal getAmountOfPayment() {
+        return amountOfPayment;
+    }
+
+    public void setAmountOfPayment(BigDecimal amountOfPayment) {
+        this.amountOfPayment = amountOfPayment;
+    }
+
+    public BigDecimal getAmountOfPaymentPerBody() {
+        return amountOfPaymentPerBody;
+    }
+
+    public void setAmountOfPaymentPerBody(BigDecimal amountOfPaymentPerBody) {
+        this.amountOfPaymentPerBody = amountOfPaymentPerBody;
+    }
+
+    public BigDecimal getAmountOfRepaymentPercent() {
+        return amountOfRepaymentPercent;
+    }
+
+    public void setAmountOfRepaymentPercent(BigDecimal amountOfRepaymentPercent) {
+        this.amountOfRepaymentPercent = amountOfRepaymentPercent;
+    }
+
+    public OfferOfCredit getOfferOfCredit() {
+        return offerOfCredit;
+    }
+
+    public void setOfferOfCredit(OfferOfCredit offerOfCredit) {
+        this.offerOfCredit = offerOfCredit;
+    }
+
     @Column(name = "DATE_OF_PAYMENT")
     private LocalDate dateOfPayment;
 

@@ -6,20 +6,21 @@
 </head>
 <body>
 <form action="#" th:action="@{/client/client-create}" th:object="${client}" method="post">
-    <label for="firstName">First name</label>
-    <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
-    <label for="middleName">Last name</label>
-    <input type="text" th:field="*{middleName}" id="middleName" placeholder="Middle Name">
-    <label for="lastName">Last name</label>
-    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
-    <label for="phoneNumber">Last name</label>
-    <input type="text" th:field="*{phoneNumber}" id="phoneNumber" placeholder="Phone Number">
-    <label for="email">Last name</label>
-    <input type="text" th:field="*{email}" id="email" placeholder="Email">
-    <label for="passportNumber">Last name</label>
-    <input type="text" th:field="*{passportNumber}" id="passportNumber" placeholder="Passport number">
+    <input type="hidden" th:field="*{bank}" />
+    <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">FirstName error</div>
+    <input type="text" th:field="*{firstName}" placeholder="First Name" class="form-control mb-4 col-4">
+    <div th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}">MiddleName error</div>
+    <input type="text" th:field="*{middleName}" placeholder="Middle Name" class="form-control mb-4 col-4">
+    <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">LastName error</div>
+    <input type="text" th:field="*{lastName}" placeholder="Last Name" class="form-control mb-4 col-4">
+    <div  th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber error</div>
+    <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" class="form-control mb-4 col-4">
+    <div  th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</div>
+    <input type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4">
+    <div  th:if="${#fields.hasErrors('passportNumber')}" th:errors="*{passportNumber}">passportNumber error</div>
+    <input type="text" th:field="*{passportNumber}" placeholder="Passport Number" class="form-control mb-4 col-4">
+    <button type="submit" class="btn btn-info col-2"> Client create</button>
 
-    <input type="submit" value="Client create">
 </form>
 </body>
 </html>

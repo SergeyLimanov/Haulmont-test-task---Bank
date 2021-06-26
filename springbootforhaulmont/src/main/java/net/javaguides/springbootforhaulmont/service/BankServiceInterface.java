@@ -15,4 +15,5 @@ public interface BankServiceInterface {
     public void deleteBankById(UUID id);
 
     public Bank saveBank(Bank bank);
+
 }

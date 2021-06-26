@@ -19,6 +19,7 @@
                 <th>Phone number</th>
                 <th>Email</th>
                 <th>Passport number</th>
+                <th>To do action </th>
             </tr>
             </thead>
             <tbody>
@@ -30,9 +31,13 @@
                 <td th:text="${client.phoneNumber}"></td>
                 <td th:text="${client.email}"></td>
                 <td th:text="${client.passportNumber}"></td>
-                <td><a th:href="@{client-update/{id}(id=${client.id})}">Edit</a></td>
-                <td><a th:href="@{client-delete/{id}(id=${client.id})}">Delete</a></td>
+                <td> <a th:href="@{/offer_of_credit/show_new_offer_of_credit_form/{id}(id=${client.getId()})}" class="btn btn-success">OfferOfCredit</a>
+                    <a th:href="@{/clients/show_form_for_update/{id}(id=${client.id})}" class="btn btn-warning">Update</a>
+                    <a th:href="@{/clients/delete_client/{id}(id=${client.getId()})}" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
+            <hr>
+            <a th:if="${!clients.isEmpty()}" th:href = "@{/show_bank/{id}(id=${clients.get(0).bank.id})}" class="btn btn-info btn-sm mb-3">Menu</a>
             </tbody>
         </table>
     </div>
