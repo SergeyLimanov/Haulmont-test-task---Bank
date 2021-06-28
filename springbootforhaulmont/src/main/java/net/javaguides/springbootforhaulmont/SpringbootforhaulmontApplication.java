@@ -11,5 +11,4 @@ public class SpringbootforhaulmontApplication {
 		
 		//нужен ли пакет web?
 	}
-
 }

@@ -5,22 +5,15 @@
     <title>Create client</title>
 </head>
 <body>
-<form action="#" th:action="@{/client/client-create}" th:object="${client}" method="post">
+<form action="#" th:action="@{/clients/save_client}" th:object="${client}" method="post">
     <input type="hidden" th:field="*{bank}" />
-    <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">FirstName error</div>
-    <input type="text" th:field="*{firstName}" placeholder="First Name" class="form-control mb-4 col-4">
-    <div th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}">MiddleName error</div>
-    <input type="text" th:field="*{middleName}" placeholder="Middle Name" class="form-control mb-4 col-4">
-    <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">LastName error</div>
-    <input type="text" th:field="*{lastName}" placeholder="Last Name" class="form-control mb-4 col-4">
-    <div  th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber error</div>
-    <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" class="form-control mb-4 col-4">
-    <div  th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</div>
-    <input type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4">
-    <div  th:if="${#fields.hasErrors('passportNumber')}" th:errors="*{passportNumber}">passportNumber error</div>
-    <input type="text" th:field="*{passportNumber}" placeholder="Passport Number" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{firstName}" placeholder="First Name" class="col-75">
+    <input type="text" th:field="*{middleName}" placeholder="Middle Name" class="col-75">
+    <input type="text" th:field="*{lastName}" placeholder="Last Name" class="col-75">
+    <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" class="col-75">
+    <input type="text" th:field="*{email}" placeholder="Email" class="col-75">
+    <input type="text" th:field="*{passportNumber}" placeholder="Passport Number" class="col-75">
     <button type="submit" class="btn btn-info col-2"> Client create</button>
-
 </form>
 </body>
 </html>
