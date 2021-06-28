@@ -5,20 +5,20 @@
     <title>Create client</title>
 </head>
 <body>
-<div> class="view">
-    <h1>Create client</h1>
+<div>
+
     <hr>
-    <h2>Update Client</h2>
+    <h1>Update Client</h1>
 <form action="#" th:action="@{/clients/save_client}" th:object="${client}" method="post">
     <input type="hidden" th:field="*{id}" />
     <input type="hidden" th:field="*{bank}" />
-    <input type="text" th:field="*{firstName}" placeholder="First Name" class="col-75">
-    <input type="text" th:field="*{middleName}" placeholder="Middle Name" class="col-75">
-    <input type="text" th:field="*{lastName}" placeholder="Last Name" class="col-75">
-    <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" class="col-75">
-    <input type="text" th:field="*{email}" placeholder="Email" class="col-75">
-    <input type="text" th:field="*{passportNumber}" placeholder="Passport Number" class="col-75">
-    <button type="submit" class="btn btn-info col-2">Update Client</button>
+    <input type="text" th:field="*{firstName}" placeholder="First Name">
+    <input type="text" th:field="*{middleName}" placeholder="Middle Name">
+    <input type="text" th:field="*{lastName}" placeholder="Last Name">
+    <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number">
+    <input type="text" th:field="*{email}" placeholder="Email">
+    <input type="text" th:field="*{passportNumber}" placeholder="Passport Number">
+    <button type="submit">Update Client</button>
 </form>
     <hr>
 <a th:href = "@{/clients/clients_list/}">Back to Client List</a>

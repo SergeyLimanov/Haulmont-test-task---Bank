@@ -5,15 +5,20 @@
     <title>Create client</title>
 </head>
 <body>
+<div>
+    <hr>
+    <h1>Client create</h1>
 <form action="#" th:action="@{/clients/save_client}" th:object="${client}" method="post">
     <input type="hidden" th:field="*{bank}" />
-    <input type="text" th:field="*{firstName}" placeholder="First Name" class="col-75">
-    <input type="text" th:field="*{middleName}" placeholder="Middle Name" class="col-75">
-    <input type="text" th:field="*{lastName}" placeholder="Last Name" class="col-75">
-    <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" class="col-75">
-    <input type="text" th:field="*{email}" placeholder="Email" class="col-75">
-    <input type="text" th:field="*{passportNumber}" placeholder="Passport Number" class="col-75">
-    <button type="submit" class="btn btn-info col-2"> Client create</button>
+    <input type="text" th:field="*{firstName}" placeholder="First Name">
+    <input type="text" th:field="*{middleName}" placeholder="Middle Name">
+    <input type="text" th:field="*{lastName}" placeholder="Last Name">
+    <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number">
+    <input type="text" th:field="*{email}" placeholder="Email">
+    <input type="text" th:field="*{passportNumber}" placeholder="Passport Number">
+    <button type="submit"> Client create</button>
 </form>
+<hr>
+</div>
 </body>
 </html>

@@ -9,10 +9,10 @@
     <h2 th:case="null">No users found!</h2>
     <div th:case="*">
         <h2>Clients</h2>
-        <table>
+        <p><a href="/clients/show_new_client_form">Create client</a></p>
+        <table border="3">
             <thead>
             <tr>
-                <th>Id</th>
                 <th>First name</th>
                 <th>Middle name</th>
                 <th>Last name</th>
@@ -24,23 +24,21 @@
             </thead>
             <tbody>
             <tr th:each="client : ${listClients}">
-                <td th:text="${client.id}"></td>
                 <td th:text="${client.firstName}"></td>
                 <td th:text="${client.middleName}"></td>
                 <td th:text="${client.lastName}"></td>
                 <td th:text="${client.phoneNumber}"></td>
                 <td th:text="${client.email}"></td>
                 <td th:text="${client.passportNumber}"></td>
-                <td> <a th:href="@{/offer_of_credit/show_new_offer_of_credit_form/{id}(id=${client.getId()})}" class="btn btn-success">OfferOfCredit</a>
-                    <a th:href="@{/clients/show_form_for_update/{id}(id=${client.getId()})}" class="btn btn-warning">Update</a>
-                    <a th:href="@{/clients/delete_client/{id}(id=${client.getId()})}" class="btn btn-danger">Delete</a>
+                <td> <a th:href="@{/offer_of_credit/show_new_offer_of_credit_form/{id}(id=${client.getId()})}">OfferOfCredit</a>
+                    <a th:href="@{/clients/show_form_for_update/{id}(id=${client.getId()})}">Update</a>
+                    <a th:href="@{/clients/delete_client/{id}(id=${client.getId()})}">Delete</a>
                 </td>
             </tr>
             <hr>
             </tbody>
         </table>
     </div>
-    <p><a href="/clients/show_new_client_form">Create client</a></p>
 </div>
 </body>
 </html>
