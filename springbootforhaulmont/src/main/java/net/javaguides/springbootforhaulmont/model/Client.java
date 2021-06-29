@@ -45,6 +45,8 @@ import java.util.UUID;
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List <OfferOfCredit> offerOfCredits;
 
+
+
      // переопределить ToString?
     // конструктор с аргументами
 }

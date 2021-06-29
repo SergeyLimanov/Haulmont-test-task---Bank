@@ -23,7 +23,7 @@ create table Credit (
                         CREDIT_ID uuid not null,
                         LIMIT_OF_MONEY numeric not null,
                         CREDIT_PERCENTAGE numeric not null,
-                        BANK_OD uuid,
+                        BANK_ID uuid,
                         TYPE_OF_CREDIT varchar not null,
                         PRIMARY KEY (CREDIT_ID)
 

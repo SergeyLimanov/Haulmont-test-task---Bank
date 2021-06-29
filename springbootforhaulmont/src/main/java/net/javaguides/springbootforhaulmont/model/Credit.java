@@ -37,5 +37,13 @@ public class Credit {
     @OneToMany(mappedBy = "credit", cascade = CascadeType.ALL) // fetch type by defolt
     private List <OfferOfCredit> offerOfCreditList;
 
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
     // переопределить ToString?
 }

@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Credit Management System</title>
 </head>
 <body>
-
+<div>
+    <h1>Credit List</h1>
+    <a th:href = "@{/credits/show_new_credit_form/{id}(id=${listCredits.get(0).bank.id})}"> Create Credit</a>
+    <table border="3">
+        <thead>
+        <tr>
+            <th>Limit Of Money</th>
+            <th>Credit Percentage</th>
+            <th>Type Of Credit</th>
+            <th>To do action </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="credit : ${listCredits}">
+            <td th:text="${credit.limitOfMoney}"></td>
+            <td th:text="${credit.creditPercentage}"></td>
+            <td th:text="${credit.typeOfCredit}"></td>
+            <td> <a th:href="@{/credits/show_form_for_update/{id}(id=${credit.id})}">Update</a>
+                <a th:href="@{/credits/delete_credit/{id}(id=${credit.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/}">Start Page</a>
+</div>
 </body>
 </html>

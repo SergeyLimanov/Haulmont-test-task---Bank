@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bank storage</title>
+
 </head>
 <body>
-
+<div>
+    <h1>Bank List</h1>
+    <a th:href = "@{/show_new_bank_form}"> Add Bank</a>
+    <table border="3">
+        <thead>
+        <tr>
+            <th>Bank Title</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="bank : ${listBank}">
+            <td th:text="${bank.name}"></td>
+            <td> <a th:href="@{/bank-view/{id}(id=${bank.id})}">View</a>
+                <a th:href="@{/show_form_for_update/{id}(id=${bank.id})}">Update</a>
+                <a th:href="@{/delete_bank/{id}(id=${bank.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

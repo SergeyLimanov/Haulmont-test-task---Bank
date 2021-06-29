@@ -21,7 +21,7 @@ public class BankController {
         return bankServiceInterface;
     }
 
-    @GetMapping({"/bank_list"})
+    @GetMapping({"/", "/bank_list"})
     public String viewHomePage(Model model) {
         model.addAttribute("listBank", bankServiceInterface.findAllBank());
         return "/bank/bank-list";
