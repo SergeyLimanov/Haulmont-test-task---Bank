@@ -11,7 +11,7 @@
     <h2>Credit create</h2>
     <form action="#" th:action="@{/credits/save_credit}" th:object="${credit}" method="POST">
         <input type="hidden" th:field="*{bank}" />
-        <input type="text" th:field="*{limitOfMoney}" placeholder="Limit Of Money">
+        <input type="number" step="0.01" min="0" th:field="*{limitOfMoney}" placeholder="Limit Of Money">
         <input type="number" step="0.01" min="0" th:field="*{creditPercentage}" placeholder="Credit Percentage Per Year">
         <input type="text" th:field="*{typeOfCredit}" placeholder="Type Of Credit">
         <button type="submit"> Create Credit</button>
