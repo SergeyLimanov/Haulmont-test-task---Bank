@@ -11,7 +11,7 @@
     <hr>
     <h2>Create Credit Offer</h2>
     <form action="#" th:action="@{/credit_offers/save_credit_offer}" th:object="${creditOffer}" method="POST">
-        <select class = class="form-control" id="choice-box-menu-item" th:value="${creditOffer}" name="creditOffer"  th:field="*{credit}">
+        <select class = class="form-control" id="choice-box-menu-item" th:value="${creditOffer}" name="creditOffer" th:field="*{credit}">
             <option value="" selected="selected">Please Select Credit</option>
             <option th:each="credit : ${creditOffer.getBank().getCredits()}" th:value="${credit.id}" th:text="${credit}" th:selected="${credit.id}"></option>
         </select>
