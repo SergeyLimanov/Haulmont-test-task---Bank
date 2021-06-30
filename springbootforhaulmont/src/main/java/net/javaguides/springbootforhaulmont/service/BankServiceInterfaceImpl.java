@@ -1,9 +1,7 @@
 package net.javaguides.springbootforhaulmont.service;
 
 import net.javaguides.springbootforhaulmont.model.Bank;
-import net.javaguides.springbootforhaulmont.model.Client;
 import net.javaguides.springbootforhaulmont.repository.BankRepository;
-import net.javaguides.springbootforhaulmont.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

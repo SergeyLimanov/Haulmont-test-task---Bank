@@ -1,6 +1,5 @@
 package net.javaguides.springbootforhaulmont.service;
 
-import net.javaguides.springbootforhaulmont.model.Bank;
 import net.javaguides.springbootforhaulmont.model.Credit;
 
 import java.util.List;
@@ -8,11 +7,11 @@ import java.util.UUID;
 
 public interface CreditServiceInterface {
 
-    public Credit findCreditById(UUID id);
+    Credit findCreditById(UUID id);
 
-    public List<Credit> findAllCredit();
+    List<Credit> findByBankId(UUID bankId);
 
-    public void deleteCreditById(UUID id);
+    void deleteCreditById(UUID id);
 
-    public Credit saveCredit(Credit credit);
+    void saveCredit(Credit credit);
 }

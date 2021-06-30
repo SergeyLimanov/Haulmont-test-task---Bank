@@ -2,10 +2,7 @@ package net.javaguides.springbootforhaulmont.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,27 +10,20 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
-@NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Builder
+@NoArgsConstructor
 @Data
+@Builder
+@Entity
 @Table(name = "OFFER_OF_CREDIT")
-    public class OfferOfCredit {
+public class OfferOfCredit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "OFFER_OF_CREDIT_ID")
     private UUID id;
 
-    public List<ScheduleOfPayment> getScheduleOfPayment() {
-        return scheduleOfPayment;
-    }
-
-    public void setScheduleOfPayment(List<ScheduleOfPayment> scheduleOfPayment) {
-        this.scheduleOfPayment = scheduleOfPayment;
-    }
-
+    @ToString.Exclude
     @JoinColumn(name = "CLIENT_ID")
     @ManyToOne(cascade = CascadeType.ALL)
     private Client client;
@@ -42,7 +32,11 @@ import java.util.UUID;
     @ManyToOne(cascade = CascadeType.ALL)
     private Credit credit;
 
-    @OneToMany(mappedBy = "offerOfCredit", cascade = CascadeType.ALL)  // fetch type by defolt
+    @Column(name = "SUM")
+    private BigDecimal sum;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "offerOfCredit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)  // fetch type by defolt?
     private List <ScheduleOfPayment> scheduleOfPayment;
 
     @Column(name = "NAME_OF_CREDIT")
@@ -57,6 +51,7 @@ import java.util.UUID;
     @Column(name = "CREDIT_TERM")
     private Integer creditTerm;  //срок кредита
 
+    @ToString.Exclude
     @ManyToOne(cascade = CascadeType.ALL)   // fetch type by defolt
     @JoinColumn(name = "BANK_ID")
     private Bank bank;
@@ -65,5 +60,4 @@ import java.util.UUID;
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @Column(name = "TAKE_DATE_OF_CREDIT")
     private LocalDate takeDate;
-
 }

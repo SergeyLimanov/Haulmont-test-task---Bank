@@ -1,13 +1,10 @@
 package net.javaguides.springbootforhaulmont.service;
 
-import net.javaguides.springbootforhaulmont.model.Client;
 import net.javaguides.springbootforhaulmont.model.OfferOfCredit;
-import net.javaguides.springbootforhaulmont.repository.ClientRepository;
 import net.javaguides.springbootforhaulmont.repository.OfferOfCreditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -26,9 +23,10 @@ public class OfferOfCreditInterfaceImpl implements OfferOfCreditInterface{
     }
 
     @Override
-    public List<OfferOfCredit> findAllOfferOfCredit() {
-        return offerOfCreditRepository.findAll();
+    public OfferOfCredit findByClientId(UUID clientId) {
+        return offerOfCreditRepository.findByClientId(clientId);
     }
+
 
     @Override
     public void deleteOfferOfCreditById(UUID id) {
@@ -37,7 +35,7 @@ public class OfferOfCreditInterfaceImpl implements OfferOfCreditInterface{
     }
 
     @Override
-    public OfferOfCredit saveOfferOfCredit(OfferOfCredit offerOfCredit) {
-        return offerOfCreditRepository.save(offerOfCredit);
+    public void saveOfferOfCredit(OfferOfCredit offerOfCredit) {
+        offerOfCreditRepository.save(offerOfCredit);
     }
 }

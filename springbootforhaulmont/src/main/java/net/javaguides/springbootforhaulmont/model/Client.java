@@ -13,7 +13,7 @@ import java.util.UUID;
 @Entity
 @Data
 @Table(name = "CLIENT")
-    public class Client {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,11 +42,9 @@ import java.util.UUID;
     @JoinColumn(name = "BANK_ID")
     private Bank bank;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List <OfferOfCredit> offerOfCredits;
 
 
 
-     // переопределить ToString?
-    // конструктор с аргументами
 }

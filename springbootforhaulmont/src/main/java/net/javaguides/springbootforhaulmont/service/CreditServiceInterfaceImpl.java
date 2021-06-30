@@ -1,8 +1,6 @@
 package net.javaguides.springbootforhaulmont.service;
 
-import net.javaguides.springbootforhaulmont.model.Client;
 import net.javaguides.springbootforhaulmont.model.Credit;
-import net.javaguides.springbootforhaulmont.repository.ClientRepository;
 import net.javaguides.springbootforhaulmont.repository.CreditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +24,8 @@ public class CreditServiceInterfaceImpl implements CreditServiceInterface {
     }
 
     @Override
-    public List<Credit> findAllCredit() {
-        return creditRepository.findAll();
+    public List<Credit> findByBankId(UUID bankId) {
+        return creditRepository.findByBankId(bankId);
     }
 
     @Override
@@ -36,7 +34,6 @@ public class CreditServiceInterfaceImpl implements CreditServiceInterface {
     }
 
     @Override
-    public Credit saveCredit(Credit credit) {
-        return creditRepository.save(credit);
+    public void saveCredit(Credit credit) { creditRepository.save(credit);
     }
 }

@@ -33,6 +33,7 @@ create table Offer_of_credit (
                               OFFER_OF_CREDIT_ID uuid not null,
                               CLIENT_ID uuid,
                               CREDIT_ID uuid,
+                              SUM numeric not null,
                               NAME_OF_CREDIT varchar not null,
                               SUM_OF_PERCENT numeric not null,
                               FIRST_PAYMENT numeric not null,

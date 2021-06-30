@@ -10,7 +10,7 @@ import java.util.UUID;
 @Repository
 public interface ScheduleOfPaymentRepository extends JpaRepository <ScheduleOfPayment, UUID> {
 
-    List<ScheduleOfPayment> findByOfferOfCreditId(UUID  OfferOfCreditId);
+    List<ScheduleOfPayment> findByOfferOfCreditId(UUID OfferOfCreditId);
 
     void deleteAllByOfferOfCreditId(UUID id);
 }

@@ -35,7 +35,10 @@ public class BankController {
     }
 
     @PostMapping("/save_bank")
-    public String saveBank(@ModelAttribute("bank") Bank bank) {
+    public String saveBank(@ModelAttribute("bank") Bank bank , BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return bank.getId() == null ? "bank/bank-create" : "bank/bank-update";
+        }
         bankServiceInterface.saveBank(bank);
         return "redirect:/bank_list";
     }

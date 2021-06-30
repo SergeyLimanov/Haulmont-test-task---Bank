@@ -1,6 +1,5 @@
 package net.javaguides.springbootforhaulmont.service;
 
-import net.javaguides.springbootforhaulmont.model.Credit;
 import net.javaguides.springbootforhaulmont.model.ScheduleOfPayment;
 
 import java.util.List;
@@ -8,13 +7,16 @@ import java.util.UUID;
 
 public interface ScheduleOfPaymentInterface {
 
-    public ScheduleOfPayment findScheduleOfPaymentById(UUID id);
+    ScheduleOfPayment findScheduleOfPaymentById(UUID id);
 
-    public List<ScheduleOfPayment> findAllScheduleOfPayment();
+    void deleteScheduleOfPaymentById(UUID id);
 
-    public void deleteScheduleOfPaymentById(UUID id);
+    void saveAllScheduleOfPayment(List<ScheduleOfPayment> scheduleOfPaymentList);
 
-    public ScheduleOfPayment saveScheduleOfPayment(ScheduleOfPayment scheduleOfPayment);
+    void saveScheduleOfPayment(ScheduleOfPayment scheduleOfPayment);
 
+    void deleteAllByCreditOfferId(UUID offerOfCreditId);
 
+    List<ScheduleOfPayment> findByOfferOfCreditId(UUID offerOfCreditId);
 }
+

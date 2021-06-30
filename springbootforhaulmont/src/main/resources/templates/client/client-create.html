@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create client</title>
+    <title>Create storage</title>
 </head>
 <body>
 <div>
@@ -19,6 +19,10 @@
     <button type="submit"> Client create</button>
 </form>
 <hr>
+    <a th:href = "@{/clients/clients_list/{id}(id=${client.bank.id})}">Back to Client List</a>
+    <br>
+    <br>
+    <a th:href="@{/}">Home</a>
 </div>
 </body>
 </html>

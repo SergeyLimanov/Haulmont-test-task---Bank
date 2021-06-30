@@ -21,7 +21,7 @@
     <button type="submit">Update Client</button>
 </form>
     <hr>
-<a th:href = "@{/clients/clients_list/}">Back to Client List</a>
+<a th:href = "@{/clients/clients_list/{id}(id=${client.bank.id})}">Back to Client List</a>
 <br>
 <br>
 <a th:href="@{/}">Home</a>

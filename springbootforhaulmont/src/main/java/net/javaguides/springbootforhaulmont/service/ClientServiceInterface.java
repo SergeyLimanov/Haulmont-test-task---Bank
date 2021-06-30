@@ -7,13 +7,13 @@ import java.util.UUID;
 
 public interface ClientServiceInterface {
 
-    public Client findClient(UUID clientId);
 
-    public List<Client> findAllClient();
-
-    public void deleteClientById(UUID id);
-
-    public Client saveClient(Client client);
+    Client findClient(UUID id);
 
     List<Client> findByBankId(UUID bankId);
+
+    void deleteClientById(UUID id);
+
+    void saveClient(Client client);
+
 }

@@ -27,16 +27,20 @@ public class Credit {
     @Column(name = "CREDIT_PERCENTAGE")
     private BigDecimal creditPercentage;
 
-    @JoinColumn(name = "BANK_ID")
-    @ManyToOne
-    private Bank bank;
-
     @Column(name = "TYPE_OF_CREDIT")
     public String typeOfCredit;
 
-    @OneToMany(mappedBy = "credit", cascade = CascadeType.ALL) // fetch type by defolt
+    @ManyToOne
+    @JoinColumn(name = "BANK_ID")
+    private Bank bank;
+
+    @OneToMany(mappedBy = "credit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List <OfferOfCredit> offerOfCreditList;
 
+    @Override
+    public String toString() {
+        return String.format("Type: %s, %nLimit: %.2f, %nInterest rate (%%): %.2f", typeOfCredit, limitOfMoney, creditPercentage);
+    }
 
-    // переопределить ToString?
+
 }

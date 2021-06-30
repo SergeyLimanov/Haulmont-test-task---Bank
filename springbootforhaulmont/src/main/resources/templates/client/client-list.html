@@ -9,7 +9,7 @@
     <h2 th:case="null">No users found!</h2>
     <div th:case="*">
         <h2>Clients</h2>
-        <p><a href="/clients/show_new_client_form">Create client</a></p>
+        <p><a href="/clients/show_new_client_form/{bankId}">Create client</a></p>
         <table border="3">
             <thead>
             <tr>
@@ -30,16 +30,18 @@
                 <td th:text="${client.phoneNumber}"></td>
                 <td th:text="${client.email}"></td>
                 <td th:text="${client.passportNumber}"></td>
-                <td> <a th:href="@{/offer_of_credit/show_new_offer_of_credit_form/{id}(id=${client.getId()})}">OfferOfCredit</a>
+                <td> <a th:href="@{/credit_offers/show_new_credit_offer_form/{id}(id=${client.getId()})}">OfferOfCredit</a>
                     <a th:href="@{/clients/show_form_for_update/{id}(id=${client.getId()})}">Update</a>
                     <a th:href="@{/clients/delete_client/{id}(id=${client.getId()})}">Delete</a>
                 </td>
             </tr>
             <hr>
+            <a th:if="${!listClients.isEmpty()}" th:href = "@{/show_bank/{id}(id=${listClients.get(0).bank.id})}">Go Back To The Bank Menu</a>
+
             </tbody>
         </table>
     </div>
-    <a th:href="@{/}">Start Page</a>
+    <a th:href="@{/}">Home</a>
 </div>
 </body>
 </html>

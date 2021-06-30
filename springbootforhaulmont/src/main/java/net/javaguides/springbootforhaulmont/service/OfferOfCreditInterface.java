@@ -2,18 +2,17 @@ package net.javaguides.springbootforhaulmont.service;
 
 import net.javaguides.springbootforhaulmont.model.OfferOfCredit;
 
-import java.util.List;
 import java.util.UUID;
 
 public interface OfferOfCreditInterface {
 
-    public OfferOfCredit findOfferOfCreditById(UUID id);
+    OfferOfCredit findOfferOfCreditById(UUID id);
 
-    public List<OfferOfCredit> findAllOfferOfCredit();
+    OfferOfCredit findByClientId (UUID clientId);
 
-    public void deleteOfferOfCreditById(UUID id);
+    void deleteOfferOfCreditById (UUID id);
 
-    public OfferOfCredit saveOfferOfCredit(OfferOfCredit offerOfCredit);
+    void saveOfferOfCredit (OfferOfCredit offerOfCredit);
 }
 
 

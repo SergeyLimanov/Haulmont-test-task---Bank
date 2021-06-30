@@ -1,8 +1,6 @@
 package net.javaguides.springbootforhaulmont.service;
 
-import net.javaguides.springbootforhaulmont.model.Client;
 import net.javaguides.springbootforhaulmont.model.ScheduleOfPayment;
-import net.javaguides.springbootforhaulmont.repository.ClientRepository;
 import net.javaguides.springbootforhaulmont.repository.ScheduleOfPaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ScheduleOfPaymentInterfaceImpl implements ScheduleOfPaymentInterface{
+public class ScheduleOfPaymentInterfaceImpl implements ScheduleOfPaymentInterface {
     
     private final ScheduleOfPaymentRepository scheduleOfPaymentRepository;
 
@@ -22,12 +20,7 @@ public class ScheduleOfPaymentInterfaceImpl implements ScheduleOfPaymentInterfac
 
     @Override
     public ScheduleOfPayment findScheduleOfPaymentById(UUID id) {
-        return scheduleOfPaymentRepository.getOne(id);
-    }
-
-    @Override
-    public List<ScheduleOfPayment> findAllScheduleOfPayment() {
-        return scheduleOfPaymentRepository.findAll();
+       return scheduleOfPaymentRepository.getOne(id);
     }
 
     @Override
@@ -36,7 +29,25 @@ public class ScheduleOfPaymentInterfaceImpl implements ScheduleOfPaymentInterfac
     }
 
     @Override
-    public ScheduleOfPayment saveScheduleOfPayment(ScheduleOfPayment scheduleOfPayment) {
-        return scheduleOfPaymentRepository.save(scheduleOfPayment);
+    public void saveAllScheduleOfPayment(List<ScheduleOfPayment> scheduleOfPaymentList) {
+        scheduleOfPaymentRepository.saveAll(scheduleOfPaymentList);
+
+    }
+
+    @Override
+    public void saveScheduleOfPayment(ScheduleOfPayment scheduleOfPayment) {
+    this.scheduleOfPaymentRepository.save(scheduleOfPayment);
+
+    }
+
+    @Override
+    public void deleteAllByCreditOfferId(UUID offerOfCreditId) {
+        scheduleOfPaymentRepository.deleteAllByOfferOfCreditId(offerOfCreditId);
+
+    }
+
+    @Override
+    public List<ScheduleOfPayment> findByOfferOfCreditId(UUID offerOfCreditId) {
+        return scheduleOfPaymentRepository.findByOfferOfCreditId(offerOfCreditId);
     }
 }

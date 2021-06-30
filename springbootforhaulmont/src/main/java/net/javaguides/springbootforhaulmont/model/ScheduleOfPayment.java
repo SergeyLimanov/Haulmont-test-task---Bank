@@ -1,6 +1,7 @@
 package net.javaguides.springbootforhaulmont.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,9 +14,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Data
 @Table(name = "SCHEDULE_OF_PAYMENT")
-    public class ScheduleOfPayment {
+public class ScheduleOfPayment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,6 +35,9 @@ import java.util.UUID;
 
     @Column(name = "AMOUNT_OF_REPAYMENT_PERCENT")
     private BigDecimal amountOfRepaymentPercent;
+
+    @Column(name = "AMOUNT_OF_REPAYMENT_REMAINS")
+    private BigDecimal remains;
 
     @ManyToOne
     @JoinColumn(name = "OFFER_OF_CREDIT_ID")

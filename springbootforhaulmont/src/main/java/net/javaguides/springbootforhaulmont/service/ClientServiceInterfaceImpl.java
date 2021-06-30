@@ -25,18 +25,12 @@ public class ClientServiceInterfaceImpl implements ClientServiceInterface {
     }
 
     @Override
-    public List<Client> findAllClient() {
-        return clientRepository.findAll();
-    }
-
-    @Override
     public void deleteClientById(UUID id){
         clientRepository.deleteById(id);
     }
 
     @Override
-     public Client saveClient(Client client) {
-        return clientRepository.save(client);
+     public void saveClient(Client client) { clientRepository.save(client);
     }
 
     @Override

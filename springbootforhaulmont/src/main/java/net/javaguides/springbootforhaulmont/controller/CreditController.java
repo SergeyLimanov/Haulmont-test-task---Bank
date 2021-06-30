@@ -29,11 +29,6 @@ public class CreditController {
         model.addAttribute("listCredits", creditServiceInterface.findCreditById(bankId));
         return "/credit/credit-list";
     }
-//    @GetMapping("/credits_list/{bankId}")
-//    public String viewHomePage(@PathVariable("bankId") UUID bankId, Model model) {
-//        model.addAttribute("listCredits", creditServiceInterface.findCreditById(bankId));
-//        return "/credit/credit-list";
-//    }
 
     @GetMapping("/show_new_credit_form/{bankId}")
     public String showNewCreditForm(Model model, @PathVariable("bankId") UUID bankId) {
@@ -42,13 +37,6 @@ public class CreditController {
         model.addAttribute("credit", credit);
         return "credit/credit-create";
     }
-
-//    @PostMapping("/save_credit")
-//    public String saveCredit(@ModelAttribute("credit") Credit credit) {
-//        UUID bankId = credit.getBank().getId();
-//        creditServiceInterface.saveCredit(credit);
-//        return String.format("redirect:/credits/credits_list/%s", bankId);
-//    }
 
     @PostMapping("/save_credit")
     public String saveCredit(@ModelAttribute("credit") Credit credit, BindingResult bindingResult) {
