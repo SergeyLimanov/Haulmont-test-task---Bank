@@ -49,8 +49,8 @@ public class OfferOfCreditController {
                                   BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return offerOfCredit.getId() == null
-                    ? "/credit_offers/new_credit_offer"
-                    : "/credit_offers/update_credit_offer";
+                    ? "/offerOfCredit/offerOfCredit-create"
+                    : "/offerOfCredit/offerOfCredit-update";
         }
 
         calculationPaymentServiceInterface.collectDataAboutOfferOfCredit(offerOfCredit);
