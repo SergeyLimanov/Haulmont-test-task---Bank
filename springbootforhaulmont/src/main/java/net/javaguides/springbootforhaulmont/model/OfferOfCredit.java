@@ -25,11 +25,11 @@ public class OfferOfCredit {
 
     @ToString.Exclude
     @JoinColumn(name = "CLIENT_ID")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Client client;
 
     @JoinColumn(name = "CREDIT_ID")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Credit credit;
 
     @Column(name = "SUM")
@@ -52,12 +52,10 @@ public class OfferOfCredit {
     private Integer creditTerm;  //срок кредита
 
     @ToString.Exclude
-    @ManyToOne(cascade = CascadeType.ALL)   // fetch type by defolt
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "BANK_ID")
     private Bank bank;
 
-
-    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Column(name = "TAKE_DATE_OF_CREDIT")
-    private LocalDate takeDate;
+    private String takeDate;
 }

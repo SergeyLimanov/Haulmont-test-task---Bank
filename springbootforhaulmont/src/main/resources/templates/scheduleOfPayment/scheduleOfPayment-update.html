@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Credit Offer Management System</title>
 </head>
 <body>
-
+<div>
+    <h1>Credit Offer Management System</h1>
+    <hr>
+    <h2>Update Payment Schedule</h2>
+    <form action="#" th:action="@{/payment_schedules/save_payment_schedule}" th:object="${paymentSchedule}" method="POST">
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{offerOfCredit}" />
+        <input type="hidden" th:field="*{remains}" />
+        <input type="text" th:field="*{dateOfPayment}" placeholder="Date Of Payment">
+        <input type="number" step="0.01" min="0" th:field="*{amountOfPayment}" placeholder="Amount Of Payment">
+        <input type="number" step="0.01" min="0" th:field="*{amountOfPaymentPerBody}" placeholder="Amount Of Payment Per Body">
+        <input type="number" step="0.01" min="0" th:field="*{amountOfRepaymentPercent}" placeholder="Amount Of Repayment Percent">
+        <button type="submit" class="btn btn-success col-2"> Update Schedule Of Payment</button>
+    </form>
+    <hr>
+    <a th:href = "@{/credits_offers/credit_offers_list}">Back to Credit Offers List</a>
+    <br>
+    <br>
+    <a th:href="@{/}">Start Page</a>
+</div>
 </body>
 </html>

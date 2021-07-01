@@ -36,7 +36,7 @@ public class ScheduleOfPayment {
     @Column(name = "AMOUNT_OF_REPAYMENT_PERCENT")
     private BigDecimal amountOfRepaymentPercent;
 
-    @Column(name = "AMOUNT_OF_REPAYMENT_REMAINS")
+    @Column(name = "REPAYMENT_REMAINS")
     private BigDecimal remains;
 
     @ManyToOne
