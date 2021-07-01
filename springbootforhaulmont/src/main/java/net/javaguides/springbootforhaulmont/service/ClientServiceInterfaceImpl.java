@@ -21,7 +21,7 @@ public class ClientServiceInterfaceImpl implements ClientServiceInterface {
 
     @Override
     public Client findClient(UUID clientId) {
-        return clientRepository.getOne(clientId);
+        return clientRepository.findById(clientId).orElse(null);
     }
 
     @Override

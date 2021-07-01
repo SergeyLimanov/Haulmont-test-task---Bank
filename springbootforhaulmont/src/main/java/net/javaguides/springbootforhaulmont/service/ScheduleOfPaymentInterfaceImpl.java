@@ -20,7 +20,7 @@ public class ScheduleOfPaymentInterfaceImpl implements ScheduleOfPaymentInterfac
 
     @Override
     public ScheduleOfPayment findScheduleOfPaymentById(UUID id) {
-       return scheduleOfPaymentRepository.getOne(id);
+       return scheduleOfPaymentRepository.findById(id).orElse(null);
     }
 
     @Override

@@ -20,7 +20,7 @@ public class BankServiceInterfaceImpl implements BankServiceInterface {
 
     @Override
     public Bank findBankById(UUID id) {
-        return bankRepository.getOne(id);
+        return bankRepository.findById(id).orElse(null);
     }
 
     @Override

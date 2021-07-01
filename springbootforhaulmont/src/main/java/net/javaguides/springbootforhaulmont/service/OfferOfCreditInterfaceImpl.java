@@ -19,7 +19,7 @@ public class OfferOfCreditInterfaceImpl implements OfferOfCreditInterface{
 
     @Override
     public OfferOfCredit findOfferOfCreditById(UUID id) {
-        return offerOfCreditRepository.getOne(id);
+        return offerOfCreditRepository.findById(id).orElse(null);
     }
 
     @Override

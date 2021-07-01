@@ -20,7 +20,7 @@ public class CreditServiceInterfaceImpl implements CreditServiceInterface {
 
     @Override
     public Credit findCreditById(UUID id) {
-        return creditRepository.getOne(id);
+        return creditRepository.findById(id).orElse(null);
     }
 
     @Override
