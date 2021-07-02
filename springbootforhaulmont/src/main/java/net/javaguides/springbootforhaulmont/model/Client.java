@@ -1,65 +1,46 @@
 package net.javaguides.springbootforhaulmont.model;
 
-import lombok.*;
-import org.hibernate.Hibernate;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Getter
-@Setter
-@ToString
-@Table(name = "CLIENT")
-public class Client {
+@Data
+@Table(name = "Client")
+    public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "CLIENT_ID")
+    @Column(name = "client_id")
     private UUID id;
 
-    @Column(name = "FIRST_NAME")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "MIDDLE_NAME")
-    private String middleName;
-
-    @Column(name = "LAST_NAME")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "PHONE_NUMBER")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "EMAIL")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "PASSPORT_NUMBER")
+    @Column(name = "passport_number")
     private String passportNumber;
 
     @ManyToOne
-    @JoinColumn(name = "BANK_ID")
+    @JoinColumn(name = "bank_id")
     private Bank bank;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @ToString.Exclude
-    private List <OfferOfCredit> offerOfCredits;
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+      private List <OfferOfCredit> offerOfCredits;
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Client client = (Client) o;
-
-        return id != null && id.equals(client.id);
+    public Client() {
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, middleName, lastName, phoneNumber, email, passportNumber);
-    }
+     // переопределить ToString?
+    // конструктор с аргументами
 }

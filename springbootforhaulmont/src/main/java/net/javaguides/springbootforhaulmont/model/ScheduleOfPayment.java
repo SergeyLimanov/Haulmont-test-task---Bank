@@ -1,60 +1,49 @@
 package net.javaguides.springbootforhaulmont.model;
 
-import lombok.*;
-import org.hibernate.Hibernate;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Objects;
 import java.util.UUID;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-@Builder
-@Getter
-@Setter
-@ToString
-@Table(name = "SCHEDULE_OF_PAYMENT")
 
-public class ScheduleOfPayment {
+
+@Entity
+@Data
+@Table(name = "Schedule_of_payment")
+    public class ScheduleOfPayment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "SCHEDULE_OF_PAYMENT_ID")
+    @Column(name = "schedule_of_payment_id")
     private UUID id;
 
-    @Column(name = "DATE_OF_PAYMENT")
+    @Column(name = "date_of_payment")
     private LocalDate dateOfPayment;
 
-    @Column(name = "AMOUNT_OF_PAYMENT")
+    @Column(name = "amount_of_payment")
     private BigDecimal amountOfPayment;
 
-    @Column(name = "AMOUNT_OF_PAYMENT_PER_BODY")
+    @Column(name = "amount_of_payment_per_body")
     private BigDecimal amountOfPaymentPerBody;
 
-    @Column(name = "AMOUNT_OF_REPAYMENT_PERCENT")
+    @Column(name = "amount_of_repayment_percent")
     private BigDecimal amountOfRepaymentPercent;
 
-    @Column(name = "REPAYMENT_REMAINS")
-    private BigDecimal remains;
-
     @ManyToOne
-    @JoinColumn(name = "OFFER_OF_CREDIT_ID")
+    @JoinColumn(name = "offer_of_credit_id")
     private OfferOfCredit offerOfCredit;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        ScheduleOfPayment that = (ScheduleOfPayment) o;
-
-        return id != null && id.equals(that.id);
+    public ScheduleOfPayment() {
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(dateOfPayment, amountOfPayment, amountOfPaymentPerBody, amountOfRepaymentPercent, remains);
+    public ScheduleOfPayment(UUID id, LocalDate dateOfPayment, BigDecimal amountOfPayment, BigDecimal amountOfPaymentPerBody, BigDecimal amountOfRepaymentPercent, OfferOfCredit offerOfCredit) {
+        this.id = id;
+        this.dateOfPayment = dateOfPayment;
+        this.amountOfPayment = amountOfPayment;
+        this.amountOfPaymentPerBody = amountOfPaymentPerBody;
+        this.amountOfRepaymentPercent = amountOfRepaymentPercent;
+        this.offerOfCredit = offerOfCredit;
     }
 }
