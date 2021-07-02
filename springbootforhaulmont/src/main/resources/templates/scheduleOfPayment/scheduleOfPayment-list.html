@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Management System</title>
+
+</head>
+<body>
+<div>
+    <h1>Payment Schedule</h1>
+    <a th:if="${!listPaymentSchedules.isEmpty()}" th:href = "@{/clients/clients_list/{id}(id=${listPaymentSchedules.get(0).creditOffer.bank.id})}"> Back To Client List</a>
+    <a th:if="${!listPaymentSchedules.isEmpty()}" th:href = "@{/show_bank/{id}(id=${listPaymentSchedules.get(0).creditOffer.bank.id})}"> Show Bank </a>
+    <table border="3">
+        <thead>
+        <tr>
+            <th>Date Of Payment</th>
+            <th>Amount Of Payment</th>
+            <th>Amount Of Payment Per Body</th>
+            <th>Amount of Repayment Percent</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="paymentSchedule : ${listPaymentSchedules}">
+            <td th:text="${paymentSchedule.dateOfPayment}"></td>
+            <td th:text="${paymentSchedule.amountOfPayment}"></td>
+            <td th:text="${paymentSchedule.amountOfPaymentPerBody}"></td>
+            <td th:text="${paymentSchedule.amountOfRepaymentPercent}"></td>
+            <td>    <a th:href="@{/payment_schedules/show_form_for_update/{id}(id=${paymentSchedule.id})}">Update</a>
+                <a th:href="@{/payment_schedules/delete_payment_schedule/{id}(id=${paymentSchedule.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/}">Start Page</a>
+</div>
+</body>
+</html>

@@ -1,49 +1,60 @@
 package net.javaguides.springbootforhaulmont.model;
 
-import lombok.Data;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 
-
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Data
-@Table(name = "Schedule_of_payment")
-    public class ScheduleOfPayment {
+@Builder
+@Getter
+@Setter
+@ToString
+@Table(name = "SCHEDULE_OF_PAYMENT")
+
+public class ScheduleOfPayment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "schedule_of_payment_id")
+    @Column(name = "SCHEDULE_OF_PAYMENT_ID")
     private UUID id;
 
-    @Column(name = "date_of_payment")
+    @Column(name = "DATE_OF_PAYMENT")
     private LocalDate dateOfPayment;
 
-    @Column(name = "amount_of_payment")
+    @Column(name = "AMOUNT_OF_PAYMENT")
     private BigDecimal amountOfPayment;
 
-    @Column(name = "amount_of_payment_per_body")
+    @Column(name = "AMOUNT_OF_PAYMENT_PER_BODY")
     private BigDecimal amountOfPaymentPerBody;
 
-    @Column(name = "amount_of_repayment_percent")
+    @Column(name = "AMOUNT_OF_REPAYMENT_PERCENT")
     private BigDecimal amountOfRepaymentPercent;
 
+    @Column(name = "REPAYMENT_REMAINS")
+    private BigDecimal remains;
+
     @ManyToOne
-    @JoinColumn(name = "offer_of_credit_id")
+    @JoinColumn(name = "OFFER_OF_CREDIT_ID")
     private OfferOfCredit offerOfCredit;
 
-    public ScheduleOfPayment() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        ScheduleOfPayment that = (ScheduleOfPayment) o;
+
+        return id != null && id.equals(that.id);
     }
 
-    public ScheduleOfPayment(UUID id, LocalDate dateOfPayment, BigDecimal amountOfPayment, BigDecimal amountOfPaymentPerBody, BigDecimal amountOfRepaymentPercent, OfferOfCredit offerOfCredit) {
-        this.id = id;
-        this.dateOfPayment = dateOfPayment;
-        this.amountOfPayment = amountOfPayment;
-        this.amountOfPaymentPerBody = amountOfPaymentPerBody;
-        this.amountOfRepaymentPercent = amountOfRepaymentPercent;
-        this.offerOfCredit = offerOfCredit;
+    @Override
+    public int hashCode() {
+        return Objects.hash(dateOfPayment, amountOfPayment, amountOfPaymentPerBody, amountOfRepaymentPercent, remains);
     }
 }

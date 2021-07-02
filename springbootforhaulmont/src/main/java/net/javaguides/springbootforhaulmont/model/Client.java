@@ -1,46 +1,65 @@
 package net.javaguides.springbootforhaulmont.model;
 
-import lombok.Data;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Data
-@Table(name = "Client")
-    public class Client {
+@Getter
+@Setter
+@ToString
+@Table(name = "CLIENT")
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "client_id")
+    @Column(name = "CLIENT_ID")
     private UUID id;
 
-    @Column(name = "first_name")
+    @Column(name = "FIRST_NAME")
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "MIDDLE_NAME")
+    private String middleName;
+
+    @Column(name = "LAST_NAME")
     private String lastName;
 
-    @Column(name = "phone_number")
+    @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
 
-    @Column(name = "email")
+    @Column(name = "EMAIL")
     private String email;
 
-    @Column(name = "passport_number")
+    @Column(name = "PASSPORT_NUMBER")
     private String passportNumber;
 
     @ManyToOne
-    @JoinColumn(name = "bank_id")
+    @JoinColumn(name = "BANK_ID")
     private Bank bank;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-      private List <OfferOfCredit> offerOfCredits;
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private List <OfferOfCredit> offerOfCredits;
 
-    public Client() {
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Client client = (Client) o;
+
+        return id != null && id.equals(client.id);
     }
 
-     // переопределить ToString?
-    // конструктор с аргументами
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, middleName, lastName, phoneNumber, email, passportNumber);
+    }
 }

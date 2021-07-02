@@ -1,31 +1,31 @@
 package net.javaguides.springbootforhaulmont.service;
 
-import net.javaguides.springbootforhaulmont.model.Client;
 import net.javaguides.springbootforhaulmont.model.Credit;
-import net.javaguides.springbootforhaulmont.repository.ClientRepository;
 import net.javaguides.springbootforhaulmont.repository.CreditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
-public class CreditServiceRealisation implements CreditServiceInterface {
+@Service
+public class CreditServiceInterfaceImpl implements CreditServiceInterface {
     
     private final CreditRepository creditRepository;
 
     @Autowired
-    public CreditServiceRealisation(CreditRepository creditRepository) {
+    public CreditServiceInterfaceImpl(CreditRepository creditRepository) {
         this.creditRepository = creditRepository;
     }
 
     @Override
     public Credit findCreditById(UUID id) {
-        return creditRepository.getOne(id);
+        return creditRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<Credit> findAllCredit() {
-        return creditRepository.findAll();
+    public List<Credit> findByBankId(UUID bankId) {
+        return creditRepository.findByBankId(bankId);
     }
 
     @Override
@@ -34,7 +34,6 @@ public class CreditServiceRealisation implements CreditServiceInterface {
     }
 
     @Override
-    public Credit saveCredit(Credit credit) {
-        return creditRepository.save(credit);
+    public void saveCredit(Credit credit) { creditRepository.save(credit);
     }
 }

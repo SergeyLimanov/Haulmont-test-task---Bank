@@ -1,32 +1,32 @@
 package net.javaguides.springbootforhaulmont.service;
 
-import net.javaguides.springbootforhaulmont.model.Client;
 import net.javaguides.springbootforhaulmont.model.OfferOfCredit;
-import net.javaguides.springbootforhaulmont.repository.ClientRepository;
 import net.javaguides.springbootforhaulmont.repository.OfferOfCreditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
 
-public class OfferOfCreditRealisation implements OfferOfCreditInterface{
+@Service
+public class OfferOfCreditInterfaceImpl implements OfferOfCreditInterface{
     
     private final OfferOfCreditRepository offerOfCreditRepository;
 
     @Autowired
-    public OfferOfCreditRealisation(OfferOfCreditRepository offerOfCreditRepository) {
+    public OfferOfCreditInterfaceImpl(OfferOfCreditRepository offerOfCreditRepository) {
         this.offerOfCreditRepository = offerOfCreditRepository;
     }
 
     @Override
     public OfferOfCredit findOfferOfCreditById(UUID id) {
-        return offerOfCreditRepository.getOne(id);
+        return offerOfCreditRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<OfferOfCredit> findAllOfferOfCredit() {
-        return offerOfCreditRepository.findAll();
+    public OfferOfCredit findByClientId(UUID clientId) {
+        return offerOfCreditRepository.findByClientId(clientId);
     }
+
 
     @Override
     public void deleteOfferOfCreditById(UUID id) {
@@ -35,7 +35,7 @@ public class OfferOfCreditRealisation implements OfferOfCreditInterface{
     }
 
     @Override
-    public OfferOfCredit saveOfferOfCredit(OfferOfCredit offerOfCredit) {
-        return offerOfCreditRepository.save(offerOfCredit);
+    public void saveOfferOfCredit(OfferOfCredit offerOfCredit) {
+        offerOfCreditRepository.save(offerOfCredit);
     }
 }

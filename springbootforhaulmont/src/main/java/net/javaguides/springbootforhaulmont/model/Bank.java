@@ -1,34 +1,49 @@
 package net.javaguides.springbootforhaulmont.model;
 
-import lombok.Data;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Data
-@Table(name = "Bank")
-    public class Bank {
+@Getter
+@Setter
+@ToString
+@Table(name = "BANK")
+public class Bank {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "bank_id")
+    @Column (name = "BANK_ID")
     private UUID id;
-    
-    @Column(name = "bank_name")
+
+    @Column(name = "BANK_NAME")
     private String name;
 
-    @OneToMany(mappedBy = "bank", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @OneToMany(mappedBy = "bank", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Credit> listOfCredits;
 
-    @OneToMany(mappedBy = "bank", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @OneToMany(mappedBy = "bank", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Client> listOfClients;
 
-    public Bank() {
-    }
-    
-    // переопределить ToString?
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Bank bank = (Bank) o;
 
+        return id != null && id.equals(bank.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }

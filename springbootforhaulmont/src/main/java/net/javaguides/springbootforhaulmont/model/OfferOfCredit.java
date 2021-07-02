@@ -1,73 +1,76 @@
 package net.javaguides.springbootforhaulmont.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
 @Entity
-@Data
-@Table(name = "Offer_of_credit")
-    public class OfferOfCredit {
+@Table(name = "OFFER_OF_CREDIT")
+public class OfferOfCredit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "offer_of_credit_id")
+    @Column(name = "OFFER_OF_CREDIT_ID")
     private UUID id;
 
-    @JoinColumn(name = "Client_id")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @JoinColumn(name = "CLIENT_ID")
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Client client;
 
-    @JoinColumn(name = "Credit_id")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CREDIT_ID")
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Credit credit;
 
-    @OneToMany(mappedBy = "offerOfCredit", cascade = CascadeType.ALL)  // fetch type by defolt
+    @Column(name = "SUM")
+    private BigDecimal sum;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "offerOfCredit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List <ScheduleOfPayment> scheduleOfPayment;
 
-
-    @Column(name = "name_of_credit")
+    @Column(name = "NAME_OF_CREDIT")
     private String nameOfCredit;
 
-    @Column(name = "sum_of_percent")
+    @Column(name = "SUM_OF_PERCENT")
     private BigDecimal sumOfPercent;
 
-    @Column(name = "first_payment")
+    @Column(name = "FIRST_PAYMENT")
     private BigDecimal firstPayment;
 
-    @Column(name = "credit_term")
+    @Column(name = "CREDIT_TERM")
     private Integer creditTerm;  //срок кредита
 
-    @ManyToOne(cascade = CascadeType.ALL)   // fetch type by defolt
-    @JoinColumn(name = "bank_id")
+    @ToString.Exclude
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "BANK_ID")
     private Bank bank;
 
+    @Column(name = "TAKE_DATE_OF_CREDIT")
+    private String takeDate;
 
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @Column(name = "take_date_of_credit")
-    private LocalDate takeDate;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        OfferOfCredit that = (OfferOfCredit) o;
 
-
-    public OfferOfCredit() {
+        return id != null && id.equals(that.id);
     }
 
-    public OfferOfCredit(UUID id, Client client, Credit credit, List<ScheduleOfPayment> scheduleOfPayment, String nameOfCredit, BigDecimal sumOfPercent, BigDecimal firstPayment, Integer creditTerm, Bank bank, LocalDate takeDate) {
-        this.id = id;
-        this.client = client;
-        this.credit = credit;
-        this.scheduleOfPayment = scheduleOfPayment;
-        this.nameOfCredit = nameOfCredit;
-        this.sumOfPercent = sumOfPercent;
-        this.firstPayment = firstPayment;
-        this.creditTerm = creditTerm;
-        this.bank = bank;
-        this.takeDate = takeDate;
+    @Override
+    public int hashCode() {
+        return Objects.hash(sum, nameOfCredit, sumOfPercent, firstPayment, creditTerm, takeDate);
     }
 }
