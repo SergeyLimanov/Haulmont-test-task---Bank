@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client administration</title>
+</head>
+<body>
+<div>
+    <h1>Bank storage</h1>
+    <hr>
+    <h2>View Bank</h2>
+    <br>
+    <br>
+    <h1 th:text="${bank.name}">Bank Name</h1>
+    <a th:href = "@{/credits/show_new_credit_form/{id}(id=${bank.getId()})}">Create Credit</a>
+    <a th:href = "@{/clients/show_new_client_form/{id}(id=${bank.getId()})}">Add Client</a>
+    <hr>
+    <a th:href = "@{/credits/credits_list/{id}(id=${bank.getId()})}">View Credit</a>
+    <a th:href = "@{/clients/clients_list/{id}(id=${bank.getId()})}">View Client</a>
+    <hr>
+    <a th:href = "@{/bank_list}">Back to Bank List</a>
+</div>
+</body>
+</html>
