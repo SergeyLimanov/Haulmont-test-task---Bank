@@ -17,6 +17,8 @@ import java.util.UUID;
 @Table(name = "BANK")
 public class Bank {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "BANK_ID")
