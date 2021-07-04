@@ -17,8 +17,6 @@ import java.util.UUID;
 @Table(name = "BANK")
 public class Bank {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "BANK_ID")
@@ -26,8 +24,6 @@ public class Bank {
 
     @Column(name = "BANK_NAME")
     private String name;
-
-
 
     @ToString.Exclude
     @OneToMany(mappedBy = "bank", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

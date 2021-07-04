@@ -10,45 +10,45 @@
     <h1>Credit Offer Management System</h1>
     <hr>
     <h2>Create Credit Offer</h2>
-<<<<<<< HEAD
+    <<<<<<< HEAD
     <form action="#" th:action="@{/credit_offers/save_credit_offer}" th:object="${offerOfCredit}" method="POST">
         <select class = class="form-control" id="choice-box-menu-item" th:value="${offerOfCredit}" name="creditOffer" th:field="*{credit}">
             <option value="" selected="selected">Please Select Credit</option>
             <option th:each="credit : ${offerOfCredit.getBank().getListOfCredits()}" th:value="${credit.id}" th:text="${credit}" th:selected="${credit.id}"></option>
-=======
-    <form action="#" th:action="@{/credit_offers/save_credit_offer}" th:object="${creditOffer}" method="POST">
-        <select class = class="form-control" id="choice-box-menu-item" th:value="${creditOffer}" name="creditOffer" th:field="*{credit}">
-            <option value="" selected="selected">Please Select Credit</option>
-            <option th:each="credit : ${creditOffer.getBank().getCredits()}" th:value="${credit.id}" th:text="${credit}" th:selected="${credit.id}"></option>
->>>>>>> origin/main
-        </select>
-        <br>
-        <!-- Add hidden form field to handle update -->
-        <input type="hidden" th:field="*{client}" />
-        <input type="hidden" th:field="*{bank}" />
-        <br>
-<<<<<<< HEAD
-        <a th:href = "@{/credits/show_new_credit_form/{id}(id=${offerOfCredit.bank.id})}"> Create Credit</a>
-=======
-        <a th:href = "@{/credits/show_new_credit_form/{id}(id=${creditOffer.bank.id})}"> Create Credit</a>
->>>>>>> origin/main
-        <br>
-        <input type="text" th:field="*{nameOfCredit}" placeholder="Name Of Credit" >
-        <input type="number" step="0.01" min="0" th:field="*{sum}" placeholder="Sum" >
-        <input type="number" min="0" step="1" th:field="*{creditTerm}" placeholder="Credit Term">
-        <input type="number" step="0.01" min="0" th:field="*{firstPayment}" placeholder="First Payment">
-        <button type="submit"> Create Credit Offer</button>
-    </form>
-    <hr>
+            =======
+            <form action="#" th:action="@{/credit_offers/save_credit_offer}" th:object="${offerOfCredit}" method="POST">
+                <select class = class="form-control" id="choice-box-menu-item" th:value="${offerOfCredit}" name="creditOffer" th:field="*{credit}">
+                    <option value="" selected="selected">Please Select Credit</option>
+                    <option th:each="credit : ${offerOfCredit.getBank().getListOfCredits()}" th:value="${credit.id}" th:text="${credit}" th:selected="${credit.id}"></option>
+                    >>>>>>> origin/main
+                </select>
+                <br>
+                <!-- Add hidden form field to handle update -->
+                <input type="hidden" th:field="*{client}" />
+                <input type="hidden" th:field="*{bank}" />
+                <br>
+                <<<<<<< HEAD
+                <a th:href = "@{/credits/show_new_credit_form/{id}(id=${offerOfCredit.bank.id})}"> Create Credit</a>
+                =======
+                <a th:href = "@{/credits/show_new_credit_form/{id}(id=${offerOfCredit.bank.id})}"> Create Credit</a>
+                >>>>>>> origin/main
+                <br>
+                <input type="text" th:field="*{nameOfCredit}" placeholder="Name Of Credit" >
+                <input type="number" step="0.01" min="0" th:field="*{sum}" placeholder="Sum" >
+                <input type="number" min="0" step="1" th:field="*{creditTerm}" placeholder="Credit Term">
+                <input type="number" step="0.01" min="0" th:field="*{firstPayment}" placeholder="First Payment">
+                <button type="submit"> Create Credit Offer</button>
+            </form>
+            <hr>
 
-<<<<<<< HEAD
-    <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${offerOfCredit.client.id})}">Show a List Of Credit Offers For This Client</a>
-=======
-    <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${creditOffer.client.id})}">Show a List Of Credit Offers For This Client</a>
->>>>>>> origin/main
-    <br>
-    <br>
-    <a th:href="@{/}">Start Page</a>
+            <<<<<<< HEAD
+            <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${offerOfCredit.client.id})}">Show a List Of Credit Offers For This Client</a>
+            =======
+            <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${offerOfCredit.client.id})}">Show a List Of Credit Offers For This Client</a>
+            >>>>>>> origin/main
+            <br>
+            <br>
+            <a th:href="@{/}">Start Page</a>
 </div>
 </body>
 </html>

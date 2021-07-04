@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Service
 public class OfferOfCreditInterfaceImpl implements OfferOfCreditInterface{
-    
+
     private final OfferOfCreditRepository offerOfCreditRepository;
 
     @Autowired

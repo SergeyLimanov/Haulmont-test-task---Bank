@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ClientServiceInterfaceImpl implements ClientServiceInterface {
+    public class ClientServiceInterfaceImpl implements ClientServiceInterface {
 
     private final ClientRepository clientRepository;
 
@@ -30,7 +30,7 @@ public class ClientServiceInterfaceImpl implements ClientServiceInterface {
     }
 
     @Override
-     public void saveClient(Client client) { clientRepository.save(client);
+    public void saveClient(Client client) { clientRepository.save(client);
     }
 
     @Override
@@ -38,4 +38,3 @@ public class ClientServiceInterfaceImpl implements ClientServiceInterface {
         return clientRepository.findByBankId(bankId);
     }
 }
-

@@ -32,7 +32,7 @@ public class BankServiceInterfaceImpl implements BankServiceInterface {
 
     @Override
     public void deleteBankById(UUID id) {
-    bankRepository.deleteById(id);
+        bankRepository.deleteById(id);
     }
 
     @Override

@@ -85,5 +85,3 @@ public class CalculationPaymentServiceInterfaceImpl implements CalculationPaymen
         return offerOfCredit;
     }
 }
-
-

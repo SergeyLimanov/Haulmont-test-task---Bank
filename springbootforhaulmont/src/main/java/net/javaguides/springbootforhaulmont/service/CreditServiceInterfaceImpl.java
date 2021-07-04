@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Service
 public class CreditServiceInterfaceImpl implements CreditServiceInterface {
-    
+
     private final CreditRepository creditRepository;
 
     @Autowired
@@ -30,7 +30,7 @@ public class CreditServiceInterfaceImpl implements CreditServiceInterface {
 
     @Override
     public void deleteCreditById(UUID id) {
-    creditRepository.deleteById(id);
+        creditRepository.deleteById(id);
     }
 
     @Override

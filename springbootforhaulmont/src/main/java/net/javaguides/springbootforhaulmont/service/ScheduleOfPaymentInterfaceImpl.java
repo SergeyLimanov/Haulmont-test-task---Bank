@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Service
 public class ScheduleOfPaymentInterfaceImpl implements ScheduleOfPaymentInterface {
-    
+
     private final ScheduleOfPaymentRepository scheduleOfPaymentRepository;
 
     @Autowired
@@ -20,7 +20,7 @@ public class ScheduleOfPaymentInterfaceImpl implements ScheduleOfPaymentInterfac
 
     @Override
     public ScheduleOfPayment findScheduleOfPaymentById(UUID id) {
-       return scheduleOfPaymentRepository.findById(id).orElse(null);
+        return scheduleOfPaymentRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class ScheduleOfPaymentInterfaceImpl implements ScheduleOfPaymentInterfac
 
     @Override
     public void saveScheduleOfPayment(ScheduleOfPayment scheduleOfPayment) {
-    this.scheduleOfPaymentRepository.save(scheduleOfPayment);
+        this.scheduleOfPaymentRepository.save(scheduleOfPayment);
 
     }
 
