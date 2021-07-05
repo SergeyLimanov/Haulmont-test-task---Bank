@@ -1,8 +1,3 @@
-DROP TABLE Schedule_of_payment IF EXISTS CASCADE;
-DROP TABLE Offer_of_credit IF EXISTS CASCADE;
-DROP TABLE Credit IF EXISTS;
-DROP TABLE Client IF EXISTS;
-DROP TABLE Bank IF EXISTS;
 
 CREATE TABLE Bank (
                       bank_id uuid not null,
@@ -13,6 +8,7 @@ CREATE TABLE Bank (
 CREATE TABLE Client (
                         client_id uuid not null,
                         first_name varchar not null,
+                        middle_name varchar not null,
                         last_name varchar not null,
                         phone_number varchar not null,
                         email varchar not null,
@@ -37,6 +33,7 @@ create table Offer_of_credit (
                               offer_of_credit_id uuid not null,
                               Client_id uuid,
                               Credit_id uuid,
+                              sum numeric  not null,
                               name_of_credit varchar not null,
                               sum_of_percent numeric not null,
                               first_payment numeric not null,
@@ -53,6 +50,7 @@ create table Schedule_of_payment (
                                   amount_of_payment numeric not null,
                                   amount_of_payment_per_body numeric not null,
                                   amount_of_repayment_percent numeric not null,
+                                  remains numeric not null,
                                   offer_of_credit_id uuid,
                                   PRIMARY KEY (schedule_of_payment_id)
 
