@@ -5,6 +5,7 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -57,8 +58,7 @@ public class OfferOfCredit {
     @JoinColumn(name = "BANK_ID")
     private Bank bank;
 
-    @Column(name = "TAKE_DATE_OF_CREDIT")
-    private String takeDate;
+
 
     @Override
     public boolean equals(Object o) {
@@ -71,6 +71,6 @@ public class OfferOfCredit {
 
     @Override
     public int hashCode() {
-        return Objects.hash(sum, nameOfCredit, sumOfPercent, firstPayment, creditTerm, takeDate);
+        return Objects.hash(sum, nameOfCredit, sumOfPercent, firstPayment, creditTerm);
     }
 }

@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Credit Offers Management System</title>
+    <title>Offer Of Credit Storage</title>
 </head>
 <body>
 <div>
-    <h1>Credit Offers List</h1>
+    <h1>List Offer Of Credits</h1>
     <a th:if="${!listCreditOffers.isEmpty()}" th:href = "@{/clients/clients_list/{id}(id=${listCreditOffers.get(0).bank.id})}"> Back To Client List</a>
     <table border="3">
         <thead>
@@ -31,7 +31,6 @@
             <td th:text="${creditOffer.bank}"></td>
             <td th:text="${creditOffer.credit}"></td>
             <td th:text="${creditOffer.client}"></td>
-            <td th:text="${creditOffer.takeDateOfCredit}"></td>
             <td>    <a th:href="@{/payment_schedules/payment_schedules_list/{id}(id=${creditOffer.id})}" >Show</a>
                 <a th:href="@{/credit_offers/show_form_for_update/{id}(id=${creditOffer.id})}" >Update</a>
                 <a th:href="@{/credit_offers/delete_credit_offer/{id}(id=${creditOffer.id})}" >Delete</a>

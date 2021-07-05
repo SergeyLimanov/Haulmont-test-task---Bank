@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Credit Offer Management System</title>
+    <title>Offer Of Credit Storage</title>
 </head>
 <body>
 <div>
-    <h1>Credit Offer Management System</h1>
+    <h1>Offer Of Credit Storage</h1>
     <hr>
-    <h2>Update Credit Offer</h2>
+    <h2>Update Offer Of Credit</h2>
     <form action="#" th:action="@{/credit_offers/save_credit_offer}" th:object="${creditOffer}" method="POST">
-        <select class = class="form-control" id="choice-box-menu-item" th:value="${creditOffer}" name="creditOffer"  th:field="*{credit}">
+        <select  th:value="${creditOffer}" name="creditOffer"  th:field="*{credit}">
             <option value="" selected="selected">Please Select Credit</option>
             <option th:each="credit : ${creditOffer.getBank().getCredits()}" th:value="${credit.id}" th:text="${credit}" th:selected="${credit.id}"></option>
         </select>
@@ -31,7 +31,7 @@
         <button type="submit"> Update Credit Offer</button>
     </form>
     <hr>
-    <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${creditOffer.client.id})}">Back to Credit Offers List</a>
+    <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${creditOffer.client.id})}">Back to List Offer Of Credits</a>
     <br>
     <br>
     <a th:href="@{/}">Start Page</a>
