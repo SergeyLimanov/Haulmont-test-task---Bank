@@ -61,7 +61,7 @@ values ('91a80fb6-1ca4-435c-8fb3-2216d145db41', 'First', 100000, 2, 10, 8, '11a8
 
 
 
-INSERT INTO schedule_of_payment(schedule_of_payment_id, amount_of_payment_per_body, amount_of_repayment_percent, amount_of_payment, date_of_payment, remains, offer_of_credit_id)
+INSERT INTO schedule_of_payment(schedule_of_payment_id, amount_of_payment_per_body, amount_of_repayment_percent, amount_of_payment, date_of_payment, repayment_remains, offer_of_credit_id)
 
 values ('91a70fb6-1ca4-435c-8fb3-2216d145db41', 10000, 5000, 15000, DATE '2021-09-01', 15000, '91a80fb6-1ca4-435c-8fb3-2216d145db41'),
        ('91a70fb6-1ca4-435c-8fb3-2216d115db42', 10000, 5000, 15000, DATE '2021-09-02', 0, '91a80fb6-1ca4-435c-8fb3-2216d145db41'),

@@ -51,7 +51,7 @@ create table Schedule_of_payment (
                                      amount_of_repayment_percent numeric,
                                      amount_of_payment numeric,
                                      date_of_payment date,
-                                     remains numeric,
+                                     repayment_remains numeric,
                                      offer_of_credit_id uuid,
                                      PRIMARY KEY (schedule_of_payment_id)
 
