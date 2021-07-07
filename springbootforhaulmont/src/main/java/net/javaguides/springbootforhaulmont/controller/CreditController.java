@@ -26,7 +26,7 @@ public class CreditController {
 
     @GetMapping("/credits_list/{bankId}")
     public String viewHomePage(@PathVariable("bankId") UUID bankId, Model model) {
-        model.addAttribute("listCredits", creditServiceInterface.findCreditById(bankId));
+        model.addAttribute("listCredits", creditServiceInterface.findByBankId(bankId)); // этот метод или findCreditById?
         return "/credit/credit-list";
     }
 
