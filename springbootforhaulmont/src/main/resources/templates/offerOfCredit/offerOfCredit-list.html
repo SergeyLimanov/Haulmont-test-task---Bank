@@ -7,6 +7,7 @@
 <body>
 <div>
     <h1>List Offer Of Credits</h1>
+
     <a th:if="${!listCreditOffers.isEmpty()}" th:href = "@{/clients/clients_list/{id}(id=${listCreditOffers.get(0).bank.id})}"> Back To Client List</a>
     <table border="3">
         <thead>
