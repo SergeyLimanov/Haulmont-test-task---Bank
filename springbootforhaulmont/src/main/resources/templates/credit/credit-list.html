@@ -29,7 +29,7 @@
         </tr>
         </tbody>
     </table>
-    <a th:if="${!listCredits.isEmpty()}" th:href = "@{/show_bank/{id}(id=${listCredits.get(0).bank.id})}">View Bank</a>
+    <a th:if="${!listCredits.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listCredits.get(0).bank.id})}">View Bank</a>
     <br>
     <br>
     <a th:href="@{/}">Start Page</a>
