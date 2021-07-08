@@ -22,13 +22,13 @@ public class BankController {
     }
 
     @GetMapping({"/", "/bank_list"})
-    public String viewHomePage(Model model) {
+    public String goToHomePage(Model model) {
         model.addAttribute("listBank", bankServiceInterface.findAllBank());
         return "/bank/bank-list";
     }
 
     @GetMapping("/show_new_bank_form")
-    public String showNewBankForm(Model model) {
+    public String goToNewBankForm(Model model) {
 
         model.addAttribute("bank", new Bank());
         return "bank/bank-create";
@@ -50,7 +50,7 @@ public class BankController {
     }
 
     @GetMapping("/show_form_for_update/{bankId}")
-    public String showFormForUpdate(@PathVariable("bankId") UUID bankId, Model model) {
+    public String goToFormForUpdate(@PathVariable("bankId") UUID bankId, Model model) {
         model.addAttribute("bank", bankServiceInterface.findBankById(bankId));
         return "bank/bank-update";
     }

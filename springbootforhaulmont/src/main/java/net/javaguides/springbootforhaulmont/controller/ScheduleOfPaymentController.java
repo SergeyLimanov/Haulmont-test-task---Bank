@@ -21,13 +21,13 @@ public class ScheduleOfPaymentController {
     }
 
     @GetMapping("/payment_schedules_list/{offerOfCreditId}")
-    public String viewHomePage(@PathVariable("offerOfCreditId") UUID offerOfCreditId, Model model) {
+    public String goToHomePage(@PathVariable("offerOfCreditId") UUID offerOfCreditId, Model model) {
         model.addAttribute("listPaymentSchedules", scheduleOfPaymentInterface.findByOfferOfCreditId(offerOfCreditId));
         return "/scheduleOfPayment/scheduleOfPayment-list";
     }
 
     @PostMapping("/save_payment_schedule")
-    public String savePaymentSchedule(@ModelAttribute("paymentSchedule") ScheduleOfPayment scheduleOfPayment,
+    public String saveScheduleOfPayment(@ModelAttribute("paymentSchedule") ScheduleOfPayment scheduleOfPayment,
                                       BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/scheduleOfPayment/scheduleOfPayment-update";
@@ -38,13 +38,13 @@ public class ScheduleOfPaymentController {
     }
 
     @GetMapping("/show_form_for_update/{paymentScheduleId}")
-    public String showFormForUpdate(@PathVariable("paymentScheduleId") UUID paymentScheduleId, Model model) {
+    public String goToFormForUpdate(@PathVariable("paymentScheduleId") UUID paymentScheduleId, Model model) {
         model.addAttribute("paymentSchedule", scheduleOfPaymentInterface.findScheduleOfPaymentById(paymentScheduleId));
         return "scheduleOfPayment/scheduleOfPayment-update";
     }
 
     @GetMapping("/delete_payment_schedule/{paymentScheduleId}")
-    public String deletePaymentSchedule(@PathVariable("paymentScheduleId") UUID paymentScheduleId) {
+    public String deleteScheduleOfPayment(@PathVariable("paymentScheduleId") UUID paymentScheduleId) {
         UUID offerOfCreditId = scheduleOfPaymentInterface.findScheduleOfPaymentById(paymentScheduleId).getOfferOfCredit().getId();
         scheduleOfPaymentInterface.deleteScheduleOfPaymentById(paymentScheduleId);
         return String.format("redirect:/payment_schedules/payment_schedules_list/%s", offerOfCreditId);

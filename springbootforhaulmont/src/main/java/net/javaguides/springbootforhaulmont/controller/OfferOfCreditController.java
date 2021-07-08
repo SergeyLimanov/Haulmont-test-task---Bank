@@ -34,13 +34,13 @@ public class OfferOfCreditController {
     }
 
     @GetMapping("/credit_offers_list/{clientId}")
-    public String viewHomePage(@PathVariable("clientId") UUID clientId, Model model) {
+    public String goToHomePage(@PathVariable("clientId") UUID clientId, Model model) {
         model.addAttribute("listCreditOffers", offerOfCreditInterface.findByClientId(clientId));
         return "/offerOfCredit/offerOfCredit-list";
     }
 
     @GetMapping("/show_new_credit_offer_form/{clientId}")
-    public String showNewCreditOfferForm(@PathVariable("clientId") UUID clientId, Model model) {
+    public String goToNewOfferOfCreditForm(@PathVariable("clientId") UUID clientId, Model model) {
         Client client = clientServiceInterface.findClient(clientId);
         model.addAttribute("offerOfCredit", OfferOfCredit.builder().client(client)
                 .bank(bankServiceInterface.findBankById(client.getBank().getId())).build());
@@ -48,7 +48,7 @@ public class OfferOfCreditController {
     }
 
     @PostMapping("/save_credit_offer")
-    public String saveCreditOffer(@ModelAttribute("creditOffer") OfferOfCredit offerOfCredit,
+    public String saveOfferOfCredit(@ModelAttribute("creditOffer") OfferOfCredit offerOfCredit,
                                   BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return offerOfCredit.getId() == null
@@ -61,13 +61,13 @@ public class OfferOfCreditController {
     }
 
     @GetMapping("/show_form_for_update/{offerOfCreditId}")
-    public String showFormForUpdate(@PathVariable("offerOfCreditId") UUID offerOfCreditId, Model model) {
+    public String goToFormForUpdate(@PathVariable("offerOfCreditId") UUID offerOfCreditId, Model model) {
         model.addAttribute("offerOfCredit", offerOfCreditInterface.findOfferOfCreditById(offerOfCreditId));
         return "/offerOfCredit/offerOfCredit-update";
     }
 
     @GetMapping("/delete_credit_offer/{offerOfCreditId}")
-    public String deleteCreditOffer(@PathVariable("offerOfCreditId") UUID offerOfCreditId) {
+    public String deleteOfferOfCredit(@PathVariable("offerOfCreditId") UUID offerOfCreditId) {
         UUID clientId = offerOfCreditInterface.findOfferOfCreditById(offerOfCreditId).getClient().getId();
         offerOfCreditInterface.deleteOfferOfCreditById(offerOfCreditId);
         return String.format("redirect:/credit_offers/credit_offers_list/%s", clientId);

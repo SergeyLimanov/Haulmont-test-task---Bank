@@ -26,13 +26,13 @@ public class CreditController {
     }
 
     @GetMapping("/credits_list/{bankId}")
-    public String viewHomePage(@PathVariable("bankId") UUID bankId, Model model) {
+    public String goToHomePage(@PathVariable("bankId") UUID bankId, Model model) {
         model.addAttribute("listCredits", creditServiceInterface.findByBankId(bankId)); // этот метод или findCreditById?
         return "/credit/credit-list";
     }
 
     @GetMapping("/show_new_credit_form/{bankId}")
-    public String showNewCreditForm(Model model, @PathVariable("bankId") UUID bankId) {
+    public String goToNewCreditForm(Model model, @PathVariable("bankId") UUID bankId) {
         Credit credit = new Credit();
         credit.setBank(bankServiceInterface.findBankById(bankId));
         model.addAttribute("credit", credit);
@@ -50,7 +50,7 @@ public class CreditController {
     }
 
     @GetMapping("/show_form_for_update/{creditId}")
-    public String showFormForUpdate(@PathVariable("creditId") UUID creditId, Model model) {
+    public String goToFormForUpdate(@PathVariable("creditId") UUID creditId, Model model) {
         model.addAttribute("credit", creditServiceInterface.findCreditById(creditId));
         return "credit/credit-update";
     }

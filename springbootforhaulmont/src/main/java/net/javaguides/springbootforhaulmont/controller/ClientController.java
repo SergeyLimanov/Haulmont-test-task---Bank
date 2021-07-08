@@ -25,13 +25,13 @@ public class ClientController {
     }
 
     @GetMapping("/clients_list/{bankId}")
-    public String viewHomePage(@PathVariable("bankId") UUID bankId, Model model) {
+    public String goToHomePage(@PathVariable("bankId") UUID bankId, Model model) {
         model.addAttribute("listClients", clientServiceInterface.findByBankId(bankId));
         return "/client/client-list";
     }
 
     @GetMapping("/show_new_client_form/{bankId}")
-    public String showNewClientForm(@PathVariable("bankId") UUID bankId, Model model) {
+    public String goToNewClientForm(@PathVariable("bankId") UUID bankId, Model model) {
         Client client = new Client();
         client.setBank(bankServiceInterface.findBankById(bankId));
         model.addAttribute("client", client);
@@ -48,7 +48,7 @@ public class ClientController {
     }
 
     @GetMapping("/show_form_for_update/{clientId}")
-    public String showFormForUpdate(@PathVariable("clientId") UUID clientId, Model model) {
+    public String goToFormForUpdate(@PathVariable("clientId") UUID clientId, Model model) {
         model.addAttribute("client", clientServiceInterface.findClient(clientId));
         return "client/client-update";
     }
