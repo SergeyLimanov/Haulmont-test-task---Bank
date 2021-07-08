@@ -60,9 +60,9 @@ public class OfferOfCreditController {
         return String.format("redirect:/credit_offers/credit_offers_list/%s", clientId);
     }
 
-    @GetMapping("/show_form_for_update/{creditOfferId}")
-    public String showFormForUpdate(@PathVariable("creditOfferId") UUID creditOfferId, Model model) {
-        model.addAttribute("creditOffer", offerOfCreditInterface.findOfferOfCreditById(creditOfferId));
+    @GetMapping("/show_form_for_update/{offerOfCreditId}")
+    public String showFormForUpdate(@PathVariable("offerOfCreditId") UUID offerOfCreditId, Model model) {
+        model.addAttribute("offerOfCredit", offerOfCreditInterface.findOfferOfCreditById(offerOfCreditId));
         return "/offerOfCredit/offerOfCredit-update";
     }
 
