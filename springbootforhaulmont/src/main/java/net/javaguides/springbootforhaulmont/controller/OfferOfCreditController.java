@@ -66,10 +66,10 @@ public class OfferOfCreditController {
         return "/offerOfCredit/offerOfCredit-update";
     }
 
-    @GetMapping("/delete_credit_offer/{creditOfferId}")
-    public String deleteCreditOffer(@PathVariable("creditOfferId") UUID creditOfferId) {
-        UUID clientId = offerOfCreditInterface.findOfferOfCreditById(creditOfferId).getClient().getId();
-        offerOfCreditInterface.deleteOfferOfCreditById(creditOfferId);
+    @GetMapping("/delete_credit_offer/{offerOfCreditId}")
+    public String deleteCreditOffer(@PathVariable("offerOfCreditId") UUID offerOfCreditId) {
+        UUID clientId = offerOfCreditInterface.findOfferOfCreditById(offerOfCreditId).getClient().getId();
+        offerOfCreditInterface.deleteOfferOfCreditById(offerOfCreditId);
         return String.format("redirect:/credit_offers/credit_offers_list/%s", clientId);
     }
 }

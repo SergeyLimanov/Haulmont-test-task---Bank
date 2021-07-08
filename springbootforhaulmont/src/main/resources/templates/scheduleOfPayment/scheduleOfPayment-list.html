@@ -8,8 +8,8 @@
 <body>
 <div>
     <h1>Payment Schedule</h1>
-    <a th:if="${!listPaymentSchedules.isEmpty()}" th:href = "@{/clients/clients_list/{id}(id=${listPaymentSchedules.get(0).creditOffer.bank.id})}"> Back To Client List</a>
-    <a th:if="${!listPaymentSchedules.isEmpty()}" th:href = "@{/show_bank/{id}(id=${listPaymentSchedules.get(0).creditOffer.bank.id})}"> Show Bank </a>
+    <a th:if="${!listPaymentSchedules.isEmpty()}" th:href = "@{/clients/clients_list/{id}(id=${listPaymentSchedules.get(0).offerOfCredit.bank.id})}"> Back To Client List</a>
+    <a th:if="${!listPaymentSchedules.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listPaymentSchedules.get(0).offerOfCredit.bank.id})}"> Show Bank </a>
     <table border="3">
         <thead>
         <tr>

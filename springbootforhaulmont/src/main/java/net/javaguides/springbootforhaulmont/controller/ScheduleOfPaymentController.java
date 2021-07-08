@@ -20,9 +20,9 @@ public class ScheduleOfPaymentController {
         this.scheduleOfPaymentInterface = scheduleOfPaymentInterface;
     }
 
-    @GetMapping("/payment_schedules_list/{creditOfferId}")
-    public String viewHomePage(@PathVariable("creditOfferId") UUID creditOfferId, Model model) {
-        model.addAttribute("listPaymentSchedules", scheduleOfPaymentInterface.findByOfferOfCreditId(creditOfferId));
+    @GetMapping("/payment_schedules_list/{offerOfCreditId}")
+    public String viewHomePage(@PathVariable("offerOfCreditId") UUID offerOfCreditId, Model model) {
+        model.addAttribute("listPaymentSchedules", scheduleOfPaymentInterface.findByOfferOfCreditId(offerOfCreditId));
         return "/scheduleOfPayment/scheduleOfPayment-list";
     }
 
@@ -32,9 +32,9 @@ public class ScheduleOfPaymentController {
         if (bindingResult.hasErrors()) {
             return "/scheduleOfPayment/scheduleOfPayment-update";
         }
-        UUID creditOfferId = scheduleOfPayment.getOfferOfCredit().getId();
+        UUID offerOfCreditId = scheduleOfPayment.getOfferOfCredit().getId();
         scheduleOfPaymentInterface.saveScheduleOfPayment(scheduleOfPayment);
-        return String.format("redirect:/payment_schedules/payment_schedules_list/%s", creditOfferId);
+        return String.format("redirect:/payment_schedules/payment_schedules_list/%s", offerOfCreditId);
     }
 
     @GetMapping("/show_form_for_update/{paymentScheduleId}")
@@ -45,9 +45,9 @@ public class ScheduleOfPaymentController {
 
     @GetMapping("/delete_payment_schedule/{paymentScheduleId}")
     public String deletePaymentSchedule(@PathVariable("paymentScheduleId") UUID paymentScheduleId) {
-        UUID creditOfferId = scheduleOfPaymentInterface.findScheduleOfPaymentById(paymentScheduleId).getOfferOfCredit().getId();
+        UUID offerOfCreditId = scheduleOfPaymentInterface.findScheduleOfPaymentById(paymentScheduleId).getOfferOfCredit().getId();
         scheduleOfPaymentInterface.deleteScheduleOfPaymentById(paymentScheduleId);
-        return String.format("redirect:/payment_schedules/payment_schedules_list/%s", creditOfferId);
+        return String.format("redirect:/payment_schedules/payment_schedules_list/%s", offerOfCreditId);
     }
 }
 

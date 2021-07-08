@@ -36,7 +36,7 @@
                 </td>
             </tr>
             <hr>
-            <a th:if="${!listClients.isEmpty()}" th:href = "@{/show_bank/{id}(id=${listClients.get(0).bank.id})}">Go Back To The Bank Menu</a>
+            <a th:if="${!listClients.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listClients.get(0).bank.id})}">Go Back To The Bank Menu</a>
 
             </tbody>
         </table>
