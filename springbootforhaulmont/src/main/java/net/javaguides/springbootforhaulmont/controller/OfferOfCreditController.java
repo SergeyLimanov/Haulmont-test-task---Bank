@@ -68,7 +68,7 @@ public class OfferOfCreditController {
 
     @GetMapping("/delete_credit_offer/{creditOfferId}")
     public String deleteCreditOffer(@PathVariable("creditOfferId") UUID creditOfferId) {
-        UUID clientId = offerOfCreditInterface.findByClientId(creditOfferId).getClient().getId();
+        UUID clientId = offerOfCreditInterface.findOfferOfCreditById(creditOfferId).getClient().getId();
         offerOfCreditInterface.deleteOfferOfCreditById(creditOfferId);
         return String.format("redirect:/credit_offers/credit_offers_list/%s", clientId);
     }
