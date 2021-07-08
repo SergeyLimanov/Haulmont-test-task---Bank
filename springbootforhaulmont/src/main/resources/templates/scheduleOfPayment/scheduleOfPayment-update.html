@@ -10,15 +10,14 @@
     <hr>
     <h2>Update Payment Schedule</h2>
     <form action="#" th:action="@{/payment_schedules/save_payment_schedule}" th:object="${paymentSchedule}" method="POST">
-        <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
         <input type="hidden" th:field="*{offerOfCredit}" />
         <input type="hidden" th:field="*{remains}" />
         <input type="text" th:field="*{dateOfPayment}" placeholder="Date Of Payment">
-        <input type="number" step="0.01" min="0" th:field="*{amountOfPayment}" placeholder="Amount Of Payment">
-        <input type="number" step="0.01" min="0" th:field="*{amountOfPaymentPerBody}" placeholder="Amount Of Payment Per Body">
-        <input type="number" step="0.01" min="0" th:field="*{amountOfRepaymentPercent}" placeholder="Amount Of Repayment Percent">
-        <button type="submit" class="btn btn-success col-2"> Update Schedule Of Payment</button>
+        <input type="number" th:field="*{amountOfPayment}" placeholder="Amount Of Payment">
+        <input type="number" th:field="*{amountOfPaymentPerBody}" placeholder="Amount Of Payment Per Body">
+        <input type="number" th:field="*{amountOfRepaymentPercent}" placeholder="Amount Of Repayment Percent">
+        <button type="submit" > Update Schedule Of Payment</button>
     </form>
     <hr>
     <br>

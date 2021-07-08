@@ -17,7 +17,6 @@
             <option th:each="credit : ${offerOfCredit.getBank().getListOfCredits()}" th:value="${credit.id}" th:text="${credit}" th:selected="${credit.id}"></option>
         </select>
         <br>
-        <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
         <input type="hidden" th:field="*{bank}" />
         <input type="hidden" th:field="*{client}" />

@@ -19,7 +19,6 @@
 
                 </select>
                 <br>
-                <!-- Add hidden form field to handle update -->
                 <input type="hidden" th:field="*{client}" />
                 <input type="hidden" th:field="*{bank}" />
                 <br>
@@ -35,11 +34,7 @@
                 <button type="submit"> Create Credit Offer</button>
             </form>
             <hr>
-
-
-
             <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${offerOfCredit.client.id})}">Show a List Of Credit Offers For This Client</a>
-
             <br>
             <br>
             <a th:href="@{/}">Start Page</a>
