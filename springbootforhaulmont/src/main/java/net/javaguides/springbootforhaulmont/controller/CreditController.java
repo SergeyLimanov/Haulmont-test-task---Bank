@@ -10,13 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @Controller
 @RequestMapping("/credits")
 public class CreditController {
-    private final BankServiceInterface bankServiceInterface;
     private final CreditServiceInterface creditServiceInterface;
+    private final BankServiceInterface bankServiceInterface;
 
     @Autowired
     public CreditController(BankServiceInterface bankServiceInterface, CreditServiceInterface creditServiceInterface) {

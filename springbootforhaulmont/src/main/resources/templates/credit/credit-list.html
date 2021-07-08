@@ -23,8 +23,8 @@
             <td th:text="${credit.limitOfMoney}"></td>
             <td th:text="${credit.creditPercentage}"></td>
             <td th:text="${credit.typeOfCredit}"></td>
-            <td> <a th:href="@{/credits/show_form_for_update/{id}(id=${credit.getId})}">Update</a>
-                <a th:href="@{/credits/delete_credit/{id}(id=${credit.detId})}">Delete</a>
+            <td> <a th:href="@{/credits/show_form_for_update/{id}(id=${credit.id})}">Update</a>
+                <a th:href="@{/credits/delete_credit/{id}(id=${credit.id})}">Delete</a>
             </td>
         </tr>
         </tbody>
