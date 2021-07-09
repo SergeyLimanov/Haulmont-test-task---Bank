@@ -2,26 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Bank storage</title>
+    <title> Банки </title>
 
 </head>
 <body>
 <div>
-    <h1>Bank List</h1>
-    <a th:href = "@{/show_new_bank_form}"> Add Bank</a>
+    <h1> Список банков </h1>
+    <a th:href = "@{/show_new_bank_form}"> Добавить банк </a>
     <table border="3">
         <thead>
         <tr>
-            <th>Bank Title</th>
-            <th>Actions</th>
+            <th> Название </th>
+            <th> Просмотр</th>
+            <th> Обновить </th>
+            <th> Удалить </th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="bank : ${listBank}">
             <td th:text="${bank.name}"></td>
-            <td> <a th:href="@{/bank-view/{id}(id=${bank.id})}">View</a>
-                <a th:href="@{/show_form_for_update/{id}(id=${bank.id})}">Update</a>
-                <a th:href="@{/delete_bank/{id}(id=${bank.id})}">Delete</a>
+            <td> <a th:href="@{/bank-view/{id}(id=${bank.id})}">Просмотр</a>
+            <td> <a th:href="@{/show_form_for_update/{id}(id=${bank.id})}"> Обновить </a>
+            <td>  <a th:href="@{/delete_bank/{id}(id=${bank.id})}"> Удвлить </a>
             </td>
         </tr>
         </tbody>

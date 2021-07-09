@@ -37,8 +37,8 @@ public class ScheduleOfPayment {
     @Column(name = "AMOUNT_OF_REPAYMENT_PERCENT")
     private BigDecimal amountOfRepaymentPercent;
 
-    @Column(name = "REPAYMENT_REMAINS")
-    private BigDecimal remains;
+    @Column(name = "BALANCE")
+    private BigDecimal balance;
 
     @ManyToOne
     @JoinColumn(name = "OFFER_OF_CREDIT_ID")
@@ -55,6 +55,6 @@ public class ScheduleOfPayment {
 
     @Override
     public int hashCode() {
-        return Objects.hash(dateOfPayment, amountOfPayment, amountOfPaymentPerBody, amountOfRepaymentPercent, remains);
+        return Objects.hash(dateOfPayment, amountOfPayment, amountOfPaymentPerBody, amountOfRepaymentPercent, balance);
     }
 }

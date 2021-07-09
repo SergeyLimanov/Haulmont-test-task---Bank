@@ -12,7 +12,7 @@
     <form action="#" th:action="@{/payment_schedules/save_payment_schedule}" th:object="${paymentSchedule}" method="POST">
         <input type="hidden" th:field="*{id}" />
         <input type="hidden" th:field="*{offerOfCredit}" />
-        <input type="hidden" th:field="*{remains}" />
+        <input type="hidden" th:field="*{balance}" />
         <input type="text" th:field="*{dateOfPayment}" placeholder="Date Of Payment">
         <input type="number" th:field="*{amountOfPayment}" placeholder="Amount Of Payment">
         <input type="number" th:field="*{amountOfPaymentPerBody}" placeholder="Amount Of Payment Per Body">

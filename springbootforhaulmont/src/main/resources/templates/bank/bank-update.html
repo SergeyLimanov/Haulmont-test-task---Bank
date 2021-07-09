@@ -2,20 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Client administration</title>
+    <title>Администрирование</title>
 </head>
 <body>
 <div>
-    <h1>Bank storage</h1>
     <hr>
-    <h2>Update Bank</h2>
+    <h1>Обновить банк</h1>
     <form action="#" th:action="@{/save_bank}" th:object="${bank}" method="POST">
         <input type="hidden" th:field="*{id}" />
-        <input type="text" th:field="*{name}" placeholder="Name">
-        <button type="submit">Update Bank</button>
+        <input type="text" th:field="*{name}" placeholder=" Название ">
+        <button type="submit"> Обновить данные </button>
     </form>
     <hr>
-    <a th:href = "@{/bank_list}">Back to Bank List</a>
+    <a th:href = "@{/bank_list}"> Список Банков </a>
 </div>
 </body>
 </html>

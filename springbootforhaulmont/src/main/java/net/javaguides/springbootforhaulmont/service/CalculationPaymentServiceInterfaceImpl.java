@@ -63,7 +63,7 @@ public class CalculationPaymentServiceInterfaceImpl implements CalculationPaymen
                             .dateOfPayment(LocalDate.now().plusMonths(i + 1))
                             .amountOfPaymentPerBody(monthlyPaymentToBodyCredit)
                             .amountOfRepaymentPercent(monthlyPaymentToPercentCredit)
-                            .remains(remainingCreditAmount.compareTo(BigDecimal.ZERO) > 0
+                            .balance(remainingCreditAmount.compareTo(BigDecimal.ZERO) > 0
                                     ? remainingCreditAmount
                                     : BigDecimal.ZERO)
                             .offerOfCredit(offerOfCredit)

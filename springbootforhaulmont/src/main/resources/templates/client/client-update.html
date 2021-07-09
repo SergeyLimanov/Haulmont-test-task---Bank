@@ -2,30 +2,30 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Client Storage</title>
+    <title>База Клиентов</title>
 
 </head>
 <body>
 <div>
-    <h1>Client Storage</h1>
+    <h1>База клиентов</h1>
     <hr>
-    <h2>Update Client</h2>
+    <h2>Обновить данные клиента</h2>
     <form action="#" th:action="@{/clients/save_client/}" th:object="${client}" method="POST">
         <input type="hidden" th:field="*{id}" />
         <input type="hidden" th:field="*{bank}" />
-        <input type="text" th:field="*{firstName}" placeholder="FirstName">
-        <input type="text" th:field="*{middleName}" placeholder="Middle Name">
-        <input type="text" th:field="*{lastName}" placeholder="Last Name">
-        <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number">
-        <input type="text" th:field="*{email}" placeholder="Email">
-        <input type="text" th:field="*{passportNumber}" placeholder="Passport Number">
-        <button type="submit" >Update Client</button>
+        <input type="text" th:field="*{lastName}" placeholder=" Фамилия ">
+        <input type="text" th:field="*{firstName}" placeholder=" Имя ">
+        <input type="text" th:field="*{middleName}" placeholder=" Отчество ">
+        <input type="text" th:field="*{phoneNumber}" placeholder=" Номер телефона ">
+        <input type="text" th:field="*{email}" placeholder=" Электронная почта ">
+        <input type="text" th:field="*{passportNumber}" placeholder=" Номер пасспорта">
+        <button type="submit" >Обновить данные</button>
     </form>
     <hr>
-    <a th:href = "@{/clients/clients_list/{id}(id=${client.bank.id})}">Back to Client List</a>
+    <a th:href = "@{/clients/clients_list/{id}(id=${client.bank.id})}">Список клиентов</a>
     <br>
     <br>
-    <a th:href="@{/}">Start Page</a>
+    <a th:href="@{/}">Домой</a>
 </div>
 </body>
 </html>
