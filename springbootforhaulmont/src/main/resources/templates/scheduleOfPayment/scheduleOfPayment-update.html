@@ -2,27 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Credit Offer Management System</title>
+    <title>Администрирование</title>
 </head>
 <body>
 <div>
-    <h1>Credit Offer Management System</h1>
     <hr>
-    <h2>Update Payment Schedule</h2>
+    <h2> Обновить график платежей </h2>
     <form action="#" th:action="@{/payment_schedules/save_payment_schedule}" th:object="${paymentSchedule}" method="POST">
         <input type="hidden" th:field="*{id}" />
         <input type="hidden" th:field="*{offerOfCredit}" />
         <input type="hidden" th:field="*{balance}" />
-        <input type="text" th:field="*{dateOfPayment}" placeholder="Date Of Payment">
-        <input type="number" th:field="*{amountOfPayment}" placeholder="Amount Of Payment">
-        <input type="number" th:field="*{amountOfPaymentPerBody}" placeholder="Amount Of Payment Per Body">
-        <input type="number" th:field="*{amountOfRepaymentPercent}" placeholder="Amount Of Repayment Percent">
-        <button type="submit" > Update Schedule Of Payment</button>
+        <input type="text" th:field="*{dateOfPayment}" placeholder=" Дата платежа ">
+        <input type="number" th:field="*{amountOfPayment}" placeholder=" Сумма платежа ">
+        <input type="number" th:field="*{amountOfPaymentPerBody}" placeholder=" Сумма гашения тела кредита ">
+        <input type="number" th:field="*{amountOfRepaymentPercent}" placeholder=" Сумма гашения процентов ">
+        <button type="submit" > Обновить график платежей </button>
     </form>
     <hr>
     <br>
     <br>
-    <a th:href="@{/}">Start Page</a>
+    <a th:href="@{/}"> Дом </a>
 </div>
 </body>
 </html>

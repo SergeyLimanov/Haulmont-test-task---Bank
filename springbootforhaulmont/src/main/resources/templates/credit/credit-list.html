@@ -2,20 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Credit Management System</title>
+    <title>Управление кредитами</title>
 </head>
 <body>
 <div>
-    <h1>Credit List</h1>
+    <h1>Список кредитов</h1>
 
-    <a th:if="${!listCredits.isEmpty()}" th:href = "@{/credits/show_new_credit_form/{id}(id=${listCredits.get(0).bank.id})}"> Create Credit</a>
+    <a th:if="${!listCredits.isEmpty()}" th:href = "@{/credits/show_new_credit_form/{id}(id=${listCredits.get(0).bank.id})}"> Создать кредит </a>
     <table border="3">
         <thead>
         <tr>
-            <th>Limit Of Money</th>
-            <th>Credit Percentage</th>
-            <th>Type Of Credit</th>
-            <th>To do action </th>
+            <th> Лимит по кредиту </th>
+            <th> Процентная ставка </th>
+            <th> Название кредита </th>
+            <th> Обновление </th>
+            <th> Удаление </th>
         </tr>
         </thead>
         <tbody>
@@ -23,16 +24,16 @@
             <td th:text="${credit.limitOfMoney}"></td>
             <td th:text="${credit.creditPercentage}"></td>
             <td th:text="${credit.typeOfCredit}"></td>
-            <td> <a th:href="@{/credits/show_form_for_update/{id}(id=${credit.id})}">Update</a>
-                <a th:href="@{/credits/delete_credit/{id}(id=${credit.id})}">Delete</a>
+            <td> <a th:href="@{/credits/show_form_for_update/{id}(id=${credit.id})}">Обновить</a>
+            <td>   <a th:href="@{/credits/delete_credit/{id}(id=${credit.id})}">Удалить</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a th:if="${!listCredits.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listCredits.get(0).bank.id})}">View Bank</a>
+    <a th:if="${!listCredits.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listCredits.get(0).bank.id})}">Банк</a>
     <br>
     <br>
-    <a th:href="@{/}">Start Page</a>
+    <a th:href="@{/}">Дом</a>
 </div>
 </body>
 </html>

@@ -39,9 +39,12 @@
             </tr>
             <hr>
             <a th:if="${!listClients.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listClients.get(0).bank.id})}"> Меню банка </a>
-
+            <br>
+            <br>
             </tbody>
         </table>
+        <br>
+        <br>
     </div>
     <a th:href="@{/}"> Домой </a>
 </div>

@@ -2,22 +2,27 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Bank Management System</title>
+    <title> Администрирование </title>
 
 </head>
 <body>
 <div>
-    <h1>Payment Schedule</h1>
-    <a th:if="${!listPaymentSchedules.isEmpty()}" th:href = "@{/clients/clients_list/{id}(id=${listPaymentSchedules.get(0).offerOfCredit.bank.id})}"> Back To Client List</a>
-    <a th:if="${!listPaymentSchedules.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listPaymentSchedules.get(0).offerOfCredit.bank.id})}"> Show Bank </a>
+    <h1> График платежей </h1>
+    <a th:if="${!listPaymentSchedules.isEmpty()}" th:href = "@{/clients/clients_list/{id}(id=${listPaymentSchedules.get(0).offerOfCredit.bank.id})}"> Список клиентов </a>
+    <br>
+    <br>
+    <a th:if="${!listPaymentSchedules.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listPaymentSchedules.get(0).offerOfCredit.bank.id})}"> Банк </a>
+    <br>
+    <br>
     <table border="3">
         <thead>
         <tr>
-            <th>Date Of Payment</th>
-            <th>Amount Of Payment</th>
-            <th>Amount Of Payment Per Body</th>
-            <th>Amount of Repayment Percent</th>
-            <th>Actions</th>
+            <th> Дата платежа </th>
+            <th> Сумма платежа </th>
+            <th> Сумма гажения тела кредита </th>
+            <th> Сумма гашения процентов </th>
+            <th> Обновление </th>
+            <th> Удаление </th>
         </tr>
         </thead>
         <tbody>
@@ -26,13 +31,15 @@
             <td th:text="${paymentSchedule.amountOfPayment}"></td>
             <td th:text="${paymentSchedule.amountOfPaymentPerBody}"></td>
             <td th:text="${paymentSchedule.amountOfRepaymentPercent}"></td>
-            <td>    <a th:href="@{/payment_schedules/show_form_for_update/{id}(id=${paymentSchedule.id})}">Update</a>
-                <a th:href="@{/payment_schedules/delete_payment_schedule/{id}(id=${paymentSchedule.id})}">Delete</a>
+            <td> <a th:href="@{/payment_schedules/show_form_for_update/{id}(id=${paymentSchedule.id})}"> Обновить </a>
+            <td> <a th:href="@{/payment_schedules/delete_payment_schedule/{id}(id=${paymentSchedule.id})}"> Удалить </a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a th:href="@{/}">Start Page</a>
+    <br>
+    <br>
+    <a th:href="@{/}"> Дом </a>
 </div>
 </body>
 </html>

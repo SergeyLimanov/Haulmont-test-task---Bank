@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Администрирование</title>
+
 </head>
 <body>
 <div>
@@ -11,13 +12,21 @@
     <br>
     <br>
     <h1 th:text="${bank.name}"> Название </h1>
-    <a th:href = "@{/credits/show_new_credit_form/{id}(id=${bank.getId()})}"> Создать кредит </a>
-    <a th:href = "@{/clients/show_new_client_form/{id}(id=${bank.getId()})}"> Добавить клиента </a>
+    <a th:href = "@{/credits/show_new_credit_form/{id}(id=${bank.getId()})}" > Создать кредит </a>
+    <br>
+    <br>
+    <a th:href = "@{/credits/credits_list/{id}(id=${bank.getId()})}" > Посмотреть кредит </a>
+    <br>
+    <br>
     <hr>
-    <a th:href = "@{/credits/credits_list/{id}(id=${bank.getId()})}"> Посмотреть кредит </a>
-    <a th:href = "@{/clients/clients_list/{id}(id=${bank.getId()})}"> Посмотреть клиента </a>
+    <a th:href = "@{/clients/show_new_client_form/{id}(id=${bank.getId()})}" > Добавить клиента </a>
+    <br>
+    <br>
+    <a th:href = "@{/clients/clients_list/{id}(id=${bank.getId()})}" > Посмотреть клиента </a>
+    <br>
+    <br>
     <hr>
-    <a th:href = "@{/bank_list}"> Список банков </a>
+    <a th:href = "@{/bank_list}" > Список банков </a>
 </div>
 </body>
 </html>

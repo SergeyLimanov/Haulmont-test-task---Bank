@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title> Банки </title>
-
 </head>
 <body>
 <div>
     <h1> Список банков </h1>
     <a th:href = "@{/show_new_bank_form}"> Добавить банк </a>
+    <br>
+    <br>
     <table border="3">
         <thead>
         <tr>
@@ -23,7 +24,7 @@
             <td th:text="${bank.name}"></td>
             <td> <a th:href="@{/bank-view/{id}(id=${bank.id})}">Просмотр</a>
             <td> <a th:href="@{/show_form_for_update/{id}(id=${bank.id})}"> Обновить </a>
-            <td>  <a th:href="@{/delete_bank/{id}(id=${bank.id})}"> Удвлить </a>
+            <td>  <a th:href="@{/delete_bank/{id}(id=${bank.id})}"> Удалить </a>
             </td>
         </tr>
         </tbody>

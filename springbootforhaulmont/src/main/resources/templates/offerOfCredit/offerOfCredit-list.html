@@ -2,24 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Offer Of Credit Storage</title>
+    <title> Кредитные предложения </title>
 </head>
 <body>
 <div>
-    <h1>List Offer Of Credits</h1>
+    <h1>Кредитные предложения</h1>
 
-    <a th:if="${!listCreditOffers.isEmpty()}" th:href = "@{/clients/clients_list/{id}(id=${listCreditOffers.get(0).bank.id})}"> Back To Client List</a>
+    <a th:if="${!listCreditOffers.isEmpty()}" th:href = "@{/clients/clients_list/{id}(id=${listCreditOffers.get(0).bank.id})}"> Список клиентов </a>
     <table border="3">
         <thead>
         <tr>
-            <th>Name Of Credit</th>
-            <th>Sum</th>
-            <th>Credit Term</th>
-            <th>Sum Of Percent</th>
-            <th>Bank</th>
-            <th>Credit</th>
-            <th>Client</th>
-            <th>Actions</th>
+            <th>Название кредита</th>
+            <th>Сумма кредита</th>
+            <th>Срок кредита</th>
+            <th>Сумма процентов</th>
+            <th>Данные о банке</th>
+            <th>Данные о кредите</th>
+            <th>Данные о клиенте</th>
+            <th>Обновить</th>
+            <th>Удалить</th>
+            <th>График платежей</th>
         </tr>
         </thead>
         <tbody>
@@ -31,14 +33,14 @@
             <td th:text="${creditOffer.bank}"></td>
             <td th:text="${creditOffer.credit}"></td>
             <td th:text="${creditOffer.client}"></td>
-            <td>    <a th:href="@{/payment_schedules/payment_schedules_list/{id}(id=${creditOffer.id})}" >Show</a>
-                <a th:href="@{/credit_offers/show_form_for_update/{id}(id=${creditOffer.id})}" >Update</a>
-                <a th:href="@{/credit_offers/delete_credit_offer/{id}(id=${creditOffer.id})}" >Delete</a>
+            <td> <a th:href="@{/credit_offers/show_form_for_update/{id}(id=${creditOffer.id})}" > Обновить </a>
+            <td> <a th:href="@{/credit_offers/delete_credit_offer/{id}(id=${creditOffer.id})}" > Удалить </a>
+            <td> <a th:href="@{/payment_schedules/payment_schedules_list/{id}(id=${creditOffer.id})}" > График </a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a th:href="@{/}">Start Page</a>
+    <a th:href="@{/}">Дом</a>
 </div>
 </body>
 </html>

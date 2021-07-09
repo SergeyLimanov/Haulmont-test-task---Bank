@@ -2,25 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Credit Management System</title>
+    <title>Управление кредитами</title>
 </head>
 <body>
 <div>
-    <h1>Credit Management System</h1>
     <hr>
-    <h2>Credit create</h2>
+    <h1>Создание кредина</h1>
     <form action="#" th:action="@{/credits/save_credit}" th:object="${credit}" method="POST">
         <input type="hidden" th:field="*{bank}" />
-        <input type="number" th:field="*{limitOfMoney}" placeholder="Limit Of Money">
-        <input type="number"  th:field="*{creditPercentage}" placeholder="Credit Percentage Per Year">
-        <input type="text" th:field="*{typeOfCredit}" placeholder="Type Of Credit">
-        <button type="submit"> Create Credit</button>
+        <input type="number" th:field="*{limitOfMoney}" placeholder=" Лимит по кредиту ">
+        <input type="number"  th:field="*{creditPercentage}" placeholder=" Процентная ставка ">
+        <input type="text" th:field="*{typeOfCredit}" placeholder=" Название кредита ">
+        <button type="submit"> Создать кредит</button>
     </form>
     <hr>
-    <a th:href = "@{/credits/credits_list/{id}(id=${credit.bank.id})}">Back to Credit List</a>
+    <a th:href = "@{/credits/credits_list/{id}(id=${credit.bank.id})}"> Список кредитов </a>
     <br>
     <br>
-    <a th:href="@{/}">Start Page</a>
+    <a th:href="@{/}">Дом</a>
 </div>
 </body>
 </html>

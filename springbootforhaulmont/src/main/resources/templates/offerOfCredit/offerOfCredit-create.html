@@ -2,19 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Offer Of Credit Storage</title>
+    <title>Кредитные предложения</title>
 
 </head>
 <body>
 <div>
-    <h1>Offer Of Credit Storage</h1>
-    <hr>
-    <h2>Create Offer Of Credit</h2>
+
+    <h1>Создать кредитное предложение</h1>
 
 
      <form action="#" th:action="@{/credit_offers/save_credit_offer}" th:object="${offerOfCredit}" method="POST">
-                <select  th:value="${offerOfCredit}" name="offerOfCredit" th:field="*{credit}">
-                    <option value="" selected="selected">Please Select Credit</option>
+                <select  th:value="${offerOfCredit}" name=" Кредитное предложение " th:field="*{credit}">
+                    <option value="" selected="selected"> Выбор кредита </option>
                     <option th:each="credit : ${offerOfCredit.getBank().getListOfCredits()}" th:value="${credit.id}" th:text="${credit}" th:selected="${credit.id}"></option>
 
                 </select>
@@ -23,21 +22,21 @@
                 <input type="hidden" th:field="*{bank}" />
                 <br>
 
-                <a th:href = "@{/credits/show_new_credit_form/{id}(id=${offerOfCredit.bank.id})}"> Create Credit</a>
+                <a th:href = "@{/credits/show_new_credit_form/{id}(id=${offerOfCredit.bank.id})}"> Создать кредит </a>
 
 
                 <br>
-                <input type="text" th:field="*{nameOfCredit}" placeholder="Name Of Credit" >
-                <input type="number"  th:field="*{sum}" placeholder="Sum" >
-                <input type="number"  th:field="*{creditTerm}" placeholder="Credit Term">
-                <input type="number"  th:field="*{firstPayment}" placeholder="First Payment">
-                <button type="submit"> Create Credit Offer</button>
+                <input type="text" th:field="*{nameOfCredit}" placeholder=" Название кредита " >
+                <input type="number"  th:field="*{sum}" placeholder=" Суммма кредита " >
+                <input type="number"  th:field="*{creditTerm}" placeholder=" Срок кредита ">
+                <input type="number"  th:field="*{firstPayment}" placeholder=" Первый платеж ">
+                <button type="submit"> Создать кредитное предложение </button>
             </form>
             <hr>
-            <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${offerOfCredit.client.id})}">Show a List Of Credit Offers For This Client</a>
+            <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${offerOfCredit.client.id})}">Список кредитных предложений для клиента</a>
             <br>
             <br>
-            <a th:href="@{/}">Start Page</a>
+            <a th:href="@{/}"> Дом </a>
 </div>
 </body>
 </html>
