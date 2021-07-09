@@ -18,9 +18,9 @@ create table Credit (
 
 CREATE TABLE Client (
                         client_id uuid not null,
+                        last_name varchar,
                         first_name varchar,
                         middle_name varchar,
-                        last_name varchar,
                         phone_number varchar,
                         email varchar,
                         passport_number varchar,

@@ -30,7 +30,7 @@ values ('51a10fb6-1ca7-435c-8fb3-2215d145db41', 'Ипотека', 19000000, 8,'1
 
 
 
-INSERT INTO client(client_id, first_name, middle_name, last_name, phone_number, email, passport_number, bank_id)
+INSERT INTO client(client_id, last_name, first_name, middle_name, phone_number, email, passport_number, bank_id)
 
 values ('91a80fb6-1ca4-435c-8fb3-3215d145db41', 'Ivanov', 'Vladislav', 'Leonidovich', '89972287416', 'ivanov-vlad@gmail.com', '6565-998273', '11a80fb6-1ca4-435c-8fb3-2215d145db41'),
        ('91a80fb6-1ca4-435c-8fb3-1215d145db41', 'Ivanov', 'Alexander', 'Leonidovich', '89972287416', 'ivanov-alex@gmail.com', '6565-998274', '11a80fb6-1ca4-435c-8fb3-2215d145db41'),

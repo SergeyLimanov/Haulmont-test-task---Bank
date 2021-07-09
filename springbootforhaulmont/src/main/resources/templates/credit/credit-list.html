@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Управление кредитами</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
 </head>
 <body>
-<div>
+<div class="container-fluid my-2">
     <h1>Список кредитов</h1>
 
     <a th:if="${!listCredits.isEmpty()}" th:href = "@{/credits/show_new_credit_form/{id}(id=${listCredits.get(0).bank.id})}"> Создать кредит </a>

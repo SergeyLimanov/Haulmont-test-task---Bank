@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Создать базу клиентов</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
 </head>
 <body>
-<div>
+<div class="container-fluid my-2">
     <hr>
-    <h1>Добавить клиента</h1>
+    <h1 class="navbar navbar-expand-md navbar-dark">Добавить клиента</h1>
     <form action="#" th:action="@{/clients/save_client}" th:object="${client}" method="post">
         <input type="hidden" th:field="*{bank}" />
-        <input type="text" th:field="*{lastName}" placeholder=" Фамилия ">
-        <input type="text" th:field="*{middleName}" placeholder=" Имя ">
-        <input type="text" th:field="*{firstName}" placeholder=" Отчество ">
-        <input type="text" th:field="*{phoneNumber}" placeholder=" Номер телефона ">
-        <input type="text" th:field="*{email}" placeholder=" Электронная почта ">
-        <input type="text" th:field="*{passportNumber}" placeholder=" Номер пасспорта ">
-        <button type="submit"> Client create</button>
+        <input type="text" th:field="*{lastName}" placeholder=" Фамилия " class="navbar navbar-expand-md navbar-dark">
+        <input type="text" th:field="*{middleName}" placeholder=" Имя " class="navbar navbar-expand-md navbar-dark">
+        <input type="text" th:field="*{firstName}" placeholder=" Отчество " class="navbar navbar-expand-md navbar-dark">
+        <input type="text" th:field="*{phoneNumber}" placeholder=" Номер телефона " class="navbar navbar-expand-md navbar-dark">
+        <input type="text" th:field="*{email}" placeholder=" Электронная почта " class="navbar navbar-expand-md navbar-dark">
+        <input type="text" th:field="*{passportNumber}" placeholder=" Номер пасспорта " class="navbar navbar-expand-md navbar-dark">
+        <button type="submit" class="navbar navbar-expand-md navbar-dark"> Создать </button>
     </form>
     <hr>
-    <a th:href = "@{/clients/clients_list/{id}(id=${client.bank.id})}">Кленты</a>
-    <br>
-    <br>
-    <a th:href="@{/}">Домой</a>
+    <a th:href = "@{/clients/clients_list/{id}(id=${client.bank.id})}" class="navbar navbar-expand-md navbar-dark">Кленты</a>
+    <a th:href="@{/}" class="navbar navbar-expand-md navbar-dark">Домой</a>
 </div>
 </body>
 </html>

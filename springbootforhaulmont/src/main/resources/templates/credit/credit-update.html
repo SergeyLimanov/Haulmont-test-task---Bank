@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title> Управление кредитами </title>
-
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
 </head>
 <body>
-<div>
+<div class="container-fluid my-2">
     <hr>
     <h1> Обновить кредит</h1>
     <form action="#" th:action="@{/credits/save_credit}" th:object="${credit}" method="POST">
