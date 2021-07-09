@@ -60,5 +60,10 @@ public class BankController {
         bankServiceInterface.deleteBankById(bankId);
         return "redirect:/bank_list";
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public String onException() {
+        return "Wrong page number";
+    }
 }
 

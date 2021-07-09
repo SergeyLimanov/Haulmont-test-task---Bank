@@ -61,4 +61,8 @@ public class CreditController {
         creditServiceInterface.deleteCreditById(creditId);
         return String.format("redirect:/credits/credits_list/%s", bankId);
     }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public String onException() {
+        return "Wrong page number";
+    }
 }

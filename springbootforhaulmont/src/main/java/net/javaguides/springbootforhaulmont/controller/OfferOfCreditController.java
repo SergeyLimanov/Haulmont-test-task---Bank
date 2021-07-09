@@ -72,4 +72,8 @@ public class OfferOfCreditController {
         offerOfCreditInterface.deleteOfferOfCreditById(offerOfCreditId);
         return String.format("redirect:/credit_offers/credit_offers_list/%s", clientId);
     }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public String onException() {
+        return "Wrong page number";
+    }
 }

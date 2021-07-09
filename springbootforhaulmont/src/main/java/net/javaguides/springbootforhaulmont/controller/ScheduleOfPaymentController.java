@@ -49,6 +49,10 @@ public class ScheduleOfPaymentController {
         scheduleOfPaymentInterface.deleteScheduleOfPaymentById(paymentScheduleId);
         return String.format("redirect:/payment_schedules/payment_schedules_list/%s", offerOfCreditId);
     }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public String onException() {
+        return "Wrong page number";
+    }
 }
 
 

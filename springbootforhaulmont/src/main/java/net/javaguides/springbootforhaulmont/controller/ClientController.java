@@ -59,4 +59,8 @@ public class ClientController {
         clientServiceInterface.deleteClientById(clientId);
         return String.format("redirect:/clients/clients_list/%s", bankId);
     }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public String onException() {
+        return "Wrong page number";
+    }
 }
