@@ -14,7 +14,6 @@
     <h2 th:case="null"> Клиенты не найдены!</h2>
     <div th:case="*">
         <h2> Клиенты </h2>
-
         <table border="3">
             <thead>
             <tr>
@@ -44,12 +43,8 @@
             </tr>
             <hr>
             <a th:if="${!listClients.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listClients.get(0).bank.id})}" class="navbar navbar-expand-md navbar-dark"> Меню банка </a>
-            <br>
-            <br>
             </tbody>
         </table>
-        <br>
-        <br>
     </div>
     <a th:href="@{/}" class="navbar navbar-expand-md navbar-dark"> Домой </a>
 </div>

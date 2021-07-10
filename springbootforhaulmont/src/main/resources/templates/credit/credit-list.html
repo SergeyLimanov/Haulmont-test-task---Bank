@@ -12,7 +12,7 @@
 <div class="container-fluid my-2">
     <h1>Список кредитов</h1>
 
-    <a th:if="${!listCredits.isEmpty()}" th:href = "@{/credits/show_new_credit_form/{id}(id=${listCredits.get(0).bank.id})}"> Создать кредит </a>
+    <a th:if="${!listCredits.isEmpty()}" th:href = "@{/credits/show_new_credit_form/{id}(id=${listCredits.get(0).bank.id})}" class="navbar navbar-expand-md navbar-dark"> Создать кредит </a>
     <table border="3">
         <thead>
         <tr>
@@ -28,16 +28,14 @@
             <td th:text="${credit.limitOfMoney}"></td>
             <td th:text="${credit.creditPercentage}"></td>
             <td th:text="${credit.typeOfCredit}"></td>
-            <td> <a th:href="@{/credits/show_form_for_update/{id}(id=${credit.id})}">Обновить</a>
-            <td>   <a th:href="@{/credits/delete_credit/{id}(id=${credit.id})}">Удалить</a>
+            <td> <a th:href="@{/credits/show_form_for_update/{id}(id=${credit.id})}" class="navbar navbar-expand-md navbar-dark">Обновить</a>
+            <td>   <a th:href="@{/credits/delete_credit/{id}(id=${credit.id})}" class="navbar navbar-expand-md navbar-dark">Удалить</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a th:if="${!listCredits.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listCredits.get(0).bank.id})}">Банк</a>
-    <br>
-    <br>
-    <a th:href="@{/}">Дом</a>
+    <a th:if="${!listCredits.isEmpty()}" th:href = "@{/bank-view/{id}(id=${listCredits.get(0).bank.id})}" class="navbar navbar-expand-md navbar-dark">Банк</a>
+    <a th:href="@{/}" class="navbar navbar-expand-md navbar-dark">Дом</a>
 </div>
 </body>
 </html>

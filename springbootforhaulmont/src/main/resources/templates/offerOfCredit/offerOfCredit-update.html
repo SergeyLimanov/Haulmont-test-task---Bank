@@ -11,12 +11,12 @@
 <body>
 <div class="container-fluid my-2">
 
-    <h2> Обновить кредитное предложение </h2>
+    <h2 class="navbar navbar-expand-md navbar-dark"> Обновить кредитное предложение </h2>
 
 
     <form action="#" th:action="@{/credit_offers/save_credit_offer}" th:object="${offerOfCredit}" method="POST">
-        <select  th:value="${offerOfCredit}" name=" Кредитное предложение " th:field="*{credit}">
-            <option value="" selected="selected"> Выбор кредита </option>
+        <select  th:value="${offerOfCredit}" name=" Кредитное предложение " class="navbar navbar-expand-md navbar-dark" th:field="*{credit}">
+            <option value="" selected="selected" class="navbar navbar-expand-md navbar-dark"> Выбор кредита </option>
             <option th:each="credit : ${offerOfCredit.getBank().getListOfCredits()}" th:value="${credit.id}" th:text="${credit}" th:selected="${credit.id}"></option>
         </select>
         <br>
@@ -26,19 +26,16 @@
         <input type="hidden" th:field="*{sumOfPercent}" />
         <input type="hidden" th:field="*{scheduleOfPayment}" />
         <br>
-        <input type="text" th:field="*{nameOfCredit}" placeholder=" Название кредита">
-        <input type="number" th:field="*{sum}" placeholder=" Сумма кредита ">
-        <input type="number" th:field="*{creditTerm}" placeholder=" Срок кредита ">
-        <input type="number" th:field="*{firstPayment}" placeholder=" Первый платеж ">
+        <input type="text" th:field="*{nameOfCredit}" placeholder=" Название кредита" class="navbar navbar-expand-md navbar-dark">
+        <input type="number" th:field="*{sum}" placeholder=" Сумма кредита " class="navbar navbar-expand-md navbar-dark">
+        <input type="number" th:field="*{creditTerm}" placeholder=" Срок кредита " class="navbar navbar-expand-md navbar-dark">
+        <input type="number" th:field="*{firstPayment}" placeholder=" Первый платеж " class="navbar navbar-expand-md navbar-dark">
 
-        <button type="submit"> Обновить кредитное предложение </button>
+        <button type="submit" class="navbar navbar-expand-md navbar-dark"> Обновить кредитное предложение </button>
     </form>
     <hr>
-    <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${offerOfCredit.client.id})}"> Список кредитных предложений для клиента </a>
-
-    <br>
-    <br>
-    <a th:href="@{/}">Дом</a>
+    <a th:href = "@{/credit_offers/credit_offers_list/{id}(id=${offerOfCredit.client.id})}" class="navbar navbar-expand-md navbar-dark"> Список кредитных предложений для клиента </a>
+    <a th:href="@{/}" class="navbar navbar-expand-md navbar-dark">Дом</a>
 </div>
 </body>
 </html>
