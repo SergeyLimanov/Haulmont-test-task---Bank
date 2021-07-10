@@ -3,6 +3,7 @@ package net.javaguides.springbootforhaulmont.service;
 import net.javaguides.springbootforhaulmont.model.OfferOfCredit;
 import net.javaguides.springbootforhaulmont.model.ScheduleOfPayment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Transactional
-@Service
-public class CalculationPaymentServiceInterfaceImpl implements CalculationPaymentServiceInterface {
+@Component
+public class CalculationPaymentServiceInterfaceImpl {
     private final OfferOfCreditInterface offerOfCreditInterface;
     private final ScheduleOfPaymentInterface scheduleOfPaymentInterface;
     private final EntityManager entityManager;
@@ -27,7 +28,7 @@ public class CalculationPaymentServiceInterfaceImpl implements CalculationPaymen
         this.entityManager = entityManager;
     }
 
-    @Override
+
     public void collectDataAboutOfferOfCredit(OfferOfCredit offerOfCredit) {
         if (offerOfCredit.getId() != null) {
             offerOfCredit = mergeAndClearPaymentScheduleList(offerOfCredit);

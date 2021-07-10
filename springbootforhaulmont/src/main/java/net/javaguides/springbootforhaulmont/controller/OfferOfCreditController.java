@@ -3,7 +3,7 @@ package net.javaguides.springbootforhaulmont.controller;
 import net.javaguides.springbootforhaulmont.model.Client;
 import net.javaguides.springbootforhaulmont.model.OfferOfCredit;
 import net.javaguides.springbootforhaulmont.service.BankServiceInterface;
-import net.javaguides.springbootforhaulmont.service.CalculationPaymentServiceInterface;
+import net.javaguides.springbootforhaulmont.service.CalculationPaymentServiceInterfaceImpl;
 import net.javaguides.springbootforhaulmont.service.ClientServiceInterface;
 import net.javaguides.springbootforhaulmont.service.OfferOfCreditInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +20,13 @@ public class OfferOfCreditController {
     private final ClientServiceInterface clientServiceInterface;
     private final BankServiceInterface bankServiceInterface;
     private final OfferOfCreditInterface offerOfCreditInterface;
-    private final CalculationPaymentServiceInterface calculationPaymentServiceInterface;
+    private final CalculationPaymentServiceInterfaceImpl calculationPaymentServiceInterface;
 
     @Autowired
     public OfferOfCreditController(ClientServiceInterface clientServiceInterface,
                                    BankServiceInterface bankServiceInterface,
                                    OfferOfCreditInterface offerOfCreditInterface,
-                                   CalculationPaymentServiceInterface calculationPaymentServiceInterface) {
+                                   CalculationPaymentServiceInterfaceImpl calculationPaymentServiceInterface) {
         this.clientServiceInterface = clientServiceInterface;
         this.bankServiceInterface = bankServiceInterface;
         this.offerOfCreditInterface = offerOfCreditInterface;

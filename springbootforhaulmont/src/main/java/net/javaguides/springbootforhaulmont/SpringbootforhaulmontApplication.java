@@ -8,7 +8,5 @@ public class SpringbootforhaulmontApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootforhaulmontApplication.class, args);
-		
-
 	}
 }
