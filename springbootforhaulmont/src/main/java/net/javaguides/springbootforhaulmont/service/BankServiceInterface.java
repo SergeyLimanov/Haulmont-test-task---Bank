@@ -13,6 +13,6 @@ public interface BankServiceInterface {
 
     void deleteBankById(UUID id);
 
-    Bank saveBank(Bank bank);
+    void saveBank(Bank bank);
 
 }

@@ -36,7 +36,7 @@ public class BankServiceInterfaceImpl implements BankServiceInterface {
     }
 
     @Override
-    public Bank saveBank(Bank bank) {
-        return bankRepository.save(bank);
+    public void saveBank(Bank bank) {
+        bankRepository.save(bank);
     }
 }
