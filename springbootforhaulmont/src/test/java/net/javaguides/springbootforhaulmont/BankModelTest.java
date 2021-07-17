@@ -9,9 +9,9 @@ class BankModelTest {
     @Test
     public void newBankShouldEntityEquals() {
         Bank firstBank = new Bank();
-        firstBank.setName("NewOne");
+        firstBank.setName("NewOnen");
         Bank secondBank = new Bank();
-        secondBank.setName("NewTwo");
+        secondBank.setName("NewTwon");
         Assertions.assertTrue(firstBank.hashCode() != secondBank.hashCode());
         Assertions.assertNotEquals(firstBank, secondBank);
     }
