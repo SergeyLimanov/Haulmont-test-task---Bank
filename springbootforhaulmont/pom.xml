@@ -8,8 +8,8 @@
 		<version>2.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>org.gruzdov.solution</groupId>
-	<artifactId>test_solution</artifactId>
+	<groupId>net.javaguides.springbootforhaulmont</groupId>
+	<artifactId>springbootforhaulmont</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>test_solution</name>
 	<description>Demo project for Spring Boot</description>
