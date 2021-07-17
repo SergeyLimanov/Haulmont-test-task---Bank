@@ -56,7 +56,7 @@ values ('91a80fb6-1ca4-435c-8fb3-3215d145db41', 'Иванов', 'Дмитрий'
        ('84a80fb6-2ca4-435c-8fb3-8215d145db41', 'Иванов', 'Дмитрий', 'Сергеевич', '89972287416', 'ivanov-dmitry@gmail.com', '6565-998973', '41a80fb6-1ca4-435c-8fb3-2215d145db41');
 
 
-INSERT INTO offer_of_credit(offer_of_credit_id, name_of_credit, sum,  credit_term, first_payment, sum_of_percent,  bank_id, credit_id, client_id)
+INSERT INTO offer_of_credit(offer_of_credit_id, name_of_credit, sum_of_credit,  credit_term, first_payment, sum_of_percent,  bank_id, credit_id, client_id)
 
 values ('91a80fb6-1ca4-435c-8fb3-2216d145db41', 'Первый', 100500, 4, 10, 8, '11a80fb6-1ca4-435c-8fb3-2215d145db41', '51a10fb6-1ca7-435c-8fb3-2215d145db41', '91a80fb6-1ca4-435c-8fb3-3215d145db41'),
        ('62a80fb6-1ca4-435c-8fb3-2217d145db41', 'Второй', 150100, 4, 10, 30, '21a80fb6-1ca4-435c-8fb3-2215d145db41', '81a80fb6-1ca4-435c-8fb3-2815d145db41', '62a80fb6-1ca4-435c-8fb3-2815d145db41'),

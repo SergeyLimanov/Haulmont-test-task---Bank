@@ -34,7 +34,7 @@ public class OfferOfCredit {
     @ManyToOne(cascade = CascadeType.MERGE)
     private Credit credit;
 
-    @Column(name = "SUM")
+    @Column(name = "SUM_OF_CREDIT")
     private BigDecimal sum;
 
     @ToString.Exclude
