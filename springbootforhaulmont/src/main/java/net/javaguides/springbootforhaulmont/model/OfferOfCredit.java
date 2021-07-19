@@ -51,7 +51,7 @@ public class OfferOfCredit {
     private BigDecimal firstPayment;
 
     @Column(name = "CREDIT_TERM")
-    private Integer creditTerm;  //срок кредита
+    private Integer creditTerm;
 
     @ToString.Exclude
     @ManyToOne(cascade = CascadeType.MERGE)

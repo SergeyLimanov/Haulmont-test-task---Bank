@@ -4,7 +4,7 @@ import net.javaguides.springbootforhaulmont.model.Client;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ClientModelTest {
+ class OfferOfCreditTest {
     @Test
     public void firstNameShouldBeNull() {
         Client clientOne = new Client();

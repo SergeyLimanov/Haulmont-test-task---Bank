@@ -18,7 +18,6 @@ import java.util.UUID;
         this.clientRepository = clientRepository;
     }
 
-
     @Override
     public Client findClient(UUID clientId) {
         return clientRepository.findById(clientId).orElse(null);
