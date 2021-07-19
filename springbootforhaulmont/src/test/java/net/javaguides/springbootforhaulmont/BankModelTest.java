@@ -4,7 +4,7 @@ package net.javaguides.springbootforhaulmont;
         import org.junit.jupiter.api.Assertions;
         import org.junit.jupiter.api.Test;
 
-class BankModelTest {
+class  BankModelTest {
 
     @Test
     public void newBankShouldEntityEquals() {
